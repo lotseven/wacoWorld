@@ -18,10 +18,6 @@ sources/0 = SubResource("TileSetAtlasSource_w8u4r")
 [node name="gunTest" type="Node2D"]
 
 [node name="ui" parent="." instance=ExtResource("1_fye2n")]
-offset_left = 60.0
-offset_top = -136.0
-offset_right = 60.0
-offset_bottom = -136.0
 
 [node name="player" parent="." instance=ExtResource("1_w8u4r")]
 position = Vector2(60, -136)

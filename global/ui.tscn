@@ -1,15 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkthl218sc7dq"]
+[gd_scene load_steps=4 format=3 uid="uid://dkthl218sc7dq"]
 
+[ext_resource type="Script" uid="uid://lwqkxgru0osb" path="res://global/ui.gd" id="1_ctvt2"]
 [ext_resource type="PackedScene" uid="uid://icchn7obb2rt" path="res://global/pointer.tscn" id="1_x6gta"]
+[ext_resource type="Texture2D" uid="uid://d56djdfjgx8i" path="res://placeholderVisuals/pointerArrow.png" id="3_qljyr"]
 
-[node name="ui" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ui" type="CanvasLayer"]
+script = ExtResource("1_ctvt2")
 
-[node name="topLayer" type="CanvasLayer" parent="."]
+[node name="aimArrow" type="Sprite2D" parent="."]
+position = Vector2(891, 818)
+texture = ExtResource("3_qljyr")
+offset = Vector2(0, -148)
 
-[node name="pointer" parent="topLayer" instance=ExtResource("1_x6gta")]
+[node name="pointer" parent="." instance=ExtResource("1_x6gta")]

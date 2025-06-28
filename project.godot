@@ -16,11 +16,16 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 [autoload]
 
 Pointer="*res://global/pointer.gd"
+SignalBus="*res://global/signalBus.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[global_group]
+
+player="group so anyone can get player"
 
 [input]
 
