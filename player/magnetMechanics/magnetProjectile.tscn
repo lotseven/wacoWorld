@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://sfmt2bo8ld41"]
+
+[ext_resource type="Texture2D" uid="uid://cvrbjl5p0w1yt" path="res://placeholderVisuals/projectile.png" id="1_m2b0m"]
+[ext_resource type="Script" uid="uid://c5hkud138f8ua" path="res://player/magnetMechanics/magnetProjectile.gd" id="1_n467q"]
+
+[node name="magnetProjectile" type="Node2D"]
+script = ExtResource("1_n467q")
+
+[node name="looks" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_m2b0m")

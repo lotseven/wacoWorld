@@ -9,11 +9,13 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	aimArrow = get_node("aimArrow")
 	SignalBus.connect("updateAimArrowVisibility", Callable(self, "setAimArrowVisibility"))	
+
 	
 func setAimArrowVisibility(x):
 	aimArrow.visible = x
 
 func _process(delta: float) -> void:
+	$fpsCounter.text = str(Engine.get_frames_per_second()) # display fps to track performance of stuff
 	if Pointer and player:
 		pointerCoords = Pointer.position
 		pointerVec = (pointerCoords - player.position).normalized()

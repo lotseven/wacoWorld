@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cq8cqa6oa61b" path="res://placeholderVisuals/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bfw4sla6ivf1f" path="res://player/player.gd" id="1_rkbax"]
-[ext_resource type="PackedScene" uid="uid://es7al1vowl84" path="res://player/magGun.tscn" id="2_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://es7al1vowl84" path="res://player/magnetMechanics/magGun.tscn" id="2_g1dw6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rkbax"]
 animations = [{

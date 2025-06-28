@@ -4,13 +4,21 @@ var bulletList
 var aimMode = false
 var rightHoldTime := 0.0
 const AIM_HOLD_THRESHOLD := 0.3 # seconds
-var pointerCoords
+
+var pointerCoords # coordinates of cursor, vector pointing to cursor from player, angle of that vector
 var pointerVec
 var pointerAngle
 
+var projContainer # container for the existing fired projectiles (probably only contains 1 at any time)
+@export var projectile: PackedScene
 
+var player
 
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
+	projContainer = $projContainer
+	#projectile = "res://player/magnetMechanics/magnetProjectile.tscn"
+	
 	Pointer.clickLeft.connect(clickRcvL)
 	Pointer.clickRight.connect(clickRcvR)
 	SignalBus.emit_signal("updateAimArrowVisibility", false)
@@ -33,18 +41,21 @@ func manageAimingMode(delta: float) -> void:
 	else: # if player releases aim button, magnet should fire off
 		rightHoldTime = 0.0
 		if aimMode:
-			handleAimRelease()
+			handleFiring()
 		aimMode = false
 		SignalBus.emit_signal("updateAimArrowVisibility", false)
 		
-func handleAimRelease():
+func handleFiring():
+	print("Aim mode deactivated: fire with vector: ", pointerVec, " (printed from magGun.gd)")
 	# the vector x componant is expected behavior
 	# vectory y componant has positive y = down direction, since all graphics programs
 	# are kind of retarded in that way but thats ok i guess
 	
-	# this all happens in ui now btw. which makes sense since its a ui, i suppose
-	print("Aim mode deactivated: fire with vector: ", pointerVec, " (printed from magGun.gd)")
-	
+	var newProjectile = projectile.instantiate()
+	newProjectile.position = player.position
+	newProjectile.myVec = pointerVec
+	newProjectile.myAngle = pointerAngle - 90
+	projContainer.add_child(newProjectile)
 	
 func clickRcvL(coords): #does nothing rn
 	#print("left clicked @: ", coords, " (printed from magGun.gd)")

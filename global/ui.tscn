@@ -13,3 +13,9 @@ texture = ExtResource("3_qljyr")
 offset = Vector2(0, -148)
 
 [node name="pointer" parent="." instance=ExtResource("1_x6gta")]
+
+[node name="fpsCounter" type="TextEdit" parent="."]
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 95.0
+offset_bottom = 51.0
