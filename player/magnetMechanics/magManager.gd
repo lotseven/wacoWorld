@@ -1,9 +1,9 @@
 extends Node2D
-var bulletList
-@export var maxBullets = 3
+@export var maxMags = 3
 var aimMode = false
 var rightHoldTime := 0.0
 const AIM_HOLD_THRESHOLD := 0.15 # seconds
+var movementMags = [] # variable to store a list of magnets which will be used to move around
 
 var pointerCoords # coordinates of cursor, vector pointing to cursor from player, angle of that vector
 var pointerVec
@@ -13,16 +13,15 @@ var projContainer # container for the existing fired projectiles (probably only 
 @export var projectile: PackedScene
 var magContainer
 @export var magnet: PackedScene
-
 var player
 
 func _ready() -> void:
 	SignalBus.connect("createMagnet", Callable(self, "handleMagnetCreation")) # connection ...
+	SignalBus.connect("magnetButtonClick", Callable(self, "handlePlayerMagnets")) # connection ...
+	
 	player = get_tree().get_first_node_in_group("player") # player noad !!
 	projContainer = $projContainer # self explanatory
 	magContainer = $magContainer
-	Pointer.clickLeft.connect(clickRcvL)
-	Pointer.clickRight.connect(clickRcvR)
 	SignalBus.emit_signal("updateAimArrowVisibility", false)
 	# YOU CAN ALSO DO Pointer.isLeftHeld & Pointer.isRightHeld for mouse ins
 	
@@ -35,7 +34,8 @@ func _process(delta: float) -> void:
 func manageAimingMode(delta: float) -> void: # goes in and out of aiming mode
 	if Pointer.isRightHeld: # waits for half a second of holding before entering aim mode
 		rightHoldTime += delta
-		if rightHoldTime >= AIM_HOLD_THRESHOLD and !aimMode:
+		var curMags = magContainer.get_child_count()
+		if rightHoldTime >= AIM_HOLD_THRESHOLD and !aimMode and curMags < maxMags:
 			aimMode = true
 			SignalBus.emit_signal("updateAimArrowVisibility", true)
 			print("Aim mode activated", " (printed from magGun.gd)")
@@ -63,11 +63,15 @@ func handleMagnetCreation(object, pos, angle):
 	newMagnet.pos = pos
 	newMagnet.angle = angle
 	magContainer.add_child(newMagnet)
+
+func handlePlayerMagnets(magnet):
+	if movementMags.has(magnet):
+		movementMags.erase(magnet)
+		print("magnet removed")
+		magnet.grouped = false
+	else: 
+		movementMags.append(magnet)
+		print("magnet added")
+		magnet.grouped = true
 	
-func clickRcvL(coords): #does nothing rn
-	#print("left clicked @: ", coords, " (printed from magGun.gd)")
-	pass
 	
-func clickRcvR(coords): #does nothing rn
-	#print("right clicked @: ", coords, " (printed from magGun.gd)")
-	pass
