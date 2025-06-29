@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd60ks7pv76m3"
-path="res://.godot/imported/skybox.png-f93b960980c4a94b43dcc2c3281a0e16.ctex"
+uid="uid://by3n02he02gki"
+path="res://.godot/imported/furtherMountains.png-5b92cc376a8340596b36f8a7acfe1cbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/skybox.png"
-dest_files=["res://.godot/imported/skybox.png-f93b960980c4a94b43dcc2c3281a0e16.ctex"]
+source_file="res://placeholderVisuals/environment/furtherMountains.png"
+dest_files=["res://.godot/imported/furtherMountains.png-5b92cc376a8340596b36f8a7acfe1cbd.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d56djdfjgx8i"
-path="res://.godot/imported/pointerArrow.png-cc58227aa0ecce5b6df6af89f57acf45.ctex"
+uid="uid://bd60ks7pv76m3"
+path="res://.godot/imported/skybox.png-8c33455593ff82a174113b551d6cd93f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/pointerArrow.png"
-dest_files=["res://.godot/imported/pointerArrow.png-cc58227aa0ecce5b6df6af89f57acf45.ctex"]
+source_file="res://placeholderVisuals/environment/skybox.png"
+dest_files=["res://.godot/imported/skybox.png-8c33455593ff82a174113b551d6cd93f.ctex"]
 
 [params]
 

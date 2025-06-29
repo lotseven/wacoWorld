@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1dkvjdms8ggc"
-path="res://.godot/imported/magnetEmbed.png-c8eb955f265b7a105c898631f4dc9539.ctex"
+uid="uid://drrt74lsgu6v5"
+path="res://.godot/imported/grassSet.png-7b4a194855f566d8361f5353a24ee653.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/magnetEmbed.png"
-dest_files=["res://.godot/imported/magnetEmbed.png-c8eb955f265b7a105c898631f4dc9539.ctex"]
+source_file="res://placeholderVisuals/environment/grassSet.png"
+dest_files=["res://.godot/imported/grassSet.png-7b4a194855f566d8361f5353a24ee653.ctex"]
 
 [params]
 

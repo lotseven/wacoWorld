@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://44kq0ne0dinu"
-path="res://.godot/imported/mousePointer.png-775374413d4e2296829718160d4dfbbd.ctex"
+uid="uid://c1dkvjdms8ggc"
+path="res://.godot/imported/magnetEmbed.png-6516bd311d453de2d7b61e21386281d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/mousePointer.png"
-dest_files=["res://.godot/imported/mousePointer.png-775374413d4e2296829718160d4dfbbd.ctex"]
+source_file="res://placeholderVisuals/ui assets/magnetEmbed.png"
+dest_files=["res://.godot/imported/magnetEmbed.png-6516bd311d453de2d7b61e21386281d9.ctex"]
 
 [params]
 

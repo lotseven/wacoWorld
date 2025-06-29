@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://q8cyxdvbdbln"]
 
 [ext_resource type="Script" uid="uid://cpiohkx8uu17l" path="res://player/magnetMechanics/magnet.gd" id="1_cipvk"]
-[ext_resource type="Texture2D" uid="uid://c1dkvjdms8ggc" path="res://placeholderVisuals/magnetEmbed.png" id="1_qc3lg"]
-[ext_resource type="Texture2D" uid="uid://7y074oirrs4b" path="res://placeholderVisuals/glowCircle.png" id="2_061rl"]
+[ext_resource type="Texture2D" uid="uid://c1dkvjdms8ggc" path="res://placeholderVisuals/ui assets/magnetEmbed.png" id="1_qc3lg"]
+[ext_resource type="Texture2D" uid="uid://7y074oirrs4b" path="res://placeholderVisuals/ui assets/glowCircle.png" id="2_061rl"]
 
 [node name="Magnet" type="Node2D"]
 script = ExtResource("1_cipvk")

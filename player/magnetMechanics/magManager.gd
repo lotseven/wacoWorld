@@ -1,5 +1,5 @@
 extends Node2D
-@export var maxMags = 10
+var maxMags
 var aimMode = false
 var rightHoldTime := 0.0
 const AIM_HOLD_THRESHOLD := 0.15 # seconds
@@ -17,6 +17,7 @@ var player
 signal magChange # calls a function in player to update magnet list and handle movement
 
 func _ready() -> void:
+	
 	SignalBus.connect("createMagnet", Callable(self, "handleMagnetCreation")) # connection ...
 	SignalBus.connect("magnetButtonClick", Callable(self, "handlePlayerMagnets")) # connection ...
 	
@@ -25,6 +26,8 @@ func _ready() -> void:
 	magContainer = $magContainer
 	SignalBus.emit_signal("updateAimArrowVisibility", false)
 	# YOU CAN ALSO DO Pointer.isLeftHeld & Pointer.isRightHeld for mouse ins
+	
+	maxMags = player.maxMags # gets max magnet count
 	
 func _process(delta: float) -> void:
 	manageAimingMode(delta)

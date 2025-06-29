@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvrbjl5p0w1yt"
-path="res://.godot/imported/projectile.png-d474c02f7dadb358b26497c367442ec2.ctex"
+uid="uid://d56djdfjgx8i"
+path="res://.godot/imported/pointerArrow.png-3db87d7d92b791394778dff3d8d79ba9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/projectile.png"
-dest_files=["res://.godot/imported/projectile.png-d474c02f7dadb358b26497c367442ec2.ctex"]
+source_file="res://placeholderVisuals/ui assets/pointerArrow.png"
+dest_files=["res://.godot/imported/pointerArrow.png-3db87d7d92b791394778dff3d8d79ba9.ctex"]
 
 [params]
 

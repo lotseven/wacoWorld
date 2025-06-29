@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drrt74lsgu6v5"
-path="res://.godot/imported/grassSet.png-2ca783baa68f26972c316972c1eedb03.ctex"
+uid="uid://b6aqs85ugswwk"
+path="res://.godot/imported/black square.png-67cc25dd77bce0d851d4c3c3365f4378.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/grassSet.png"
-dest_files=["res://.godot/imported/grassSet.png-2ca783baa68f26972c316972c1eedb03.ctex"]
+source_file="res://placeholderVisuals/ui assets/black square.png"
+dest_files=["res://.godot/imported/black square.png-67cc25dd77bce0d851d4c3c3365f4378.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6aqs85ugswwk"
-path="res://.godot/imported/black square.png-25c03a14958281063dbd0f2f07264ed9.ctex"
+uid="uid://dddr8ypl043j"
+path="res://.godot/imported/farMountains.png-0fccad900fccb3215623d8c107a4df8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/black square.png"
-dest_files=["res://.godot/imported/black square.png-25c03a14958281063dbd0f2f07264ed9.ctex"]
+source_file="res://placeholderVisuals/environment/farMountains.png"
+dest_files=["res://.godot/imported/farMountains.png-0fccad900fccb3215623d8c107a4df8d.ctex"]
 
 [params]
 

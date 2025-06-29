@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk0w45o2hwu1t"
-path="res://.godot/imported/clouds.png-03927dd12a35b5381f0713cf62d2b0c9.ctex"
+uid="uid://44kq0ne0dinu"
+path="res://.godot/imported/mousePointer.png-5d12ce9bac3e6ee2802fd93999cc3beb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/clouds.png"
-dest_files=["res://.godot/imported/clouds.png-03927dd12a35b5381f0713cf62d2b0c9.ctex"]
+source_file="res://placeholderVisuals/ui assets/mousePointer.png"
+dest_files=["res://.godot/imported/mousePointer.png-5d12ce9bac3e6ee2802fd93999cc3beb.ctex"]
 
 [params]
 
