@@ -8,3 +8,5 @@ script = ExtResource("1_vmw3l")
 projectile = ExtResource("2_3l2m4")
 
 [node name="projContainer" type="Node" parent="."]
+
+[node name="magContainer" type="Node" parent="."]

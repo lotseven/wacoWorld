@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED := 350.0
+const SPEED := 35000.0
 const JUMP_FORCE := -200.0
 const GRAVITY := 900.0
 @export var camOffset = 150
@@ -17,7 +17,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("right"):
 		input_direction += 1.0
 
-	velocity.x = input_direction * SPEED
+	velocity.x = input_direction * SPEED * delta
 
 	if input_direction != 0:
 		$looks.flip_h = input_direction < 0

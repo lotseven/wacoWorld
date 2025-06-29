@@ -1,11 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://sfmt2bo8ld41"]
+[gd_scene load_steps=4 format=3 uid="uid://sfmt2bo8ld41"]
 
 [ext_resource type="Texture2D" uid="uid://cvrbjl5p0w1yt" path="res://placeholderVisuals/projectile.png" id="1_m2b0m"]
 [ext_resource type="Script" uid="uid://c5hkud138f8ua" path="res://player/magnetMechanics/magnetProjectile.gd" id="1_n467q"]
 
-[node name="magnetProjectile" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n467q"]
+radius = 3.0
+height = 40.0
+
+[node name="magnetProjectile" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_n467q")
 
 [node name="looks" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_m2b0m")
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_n467q")

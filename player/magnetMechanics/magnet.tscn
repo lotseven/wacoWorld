@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbomdmyjiskna"]
+
+[ext_resource type="Script" uid="uid://cpiohkx8uu17l" path="res://player/magnetMechanics/magnet.gd" id="1_cipvk"]
+[ext_resource type="Texture2D" uid="uid://c1dkvjdms8ggc" path="res://placeholderVisuals/magnetEmbed.png" id="1_qc3lg"]
+
+[node name="Magnet" type="Node2D"]
+script = ExtResource("1_cipvk")
+
+[node name="looks" type="Sprite2D" parent="."]
+texture = ExtResource("1_qc3lg")

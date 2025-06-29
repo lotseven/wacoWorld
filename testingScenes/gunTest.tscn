@@ -12,7 +12,8 @@ texture = ExtResource("1_ij5kb")
 4:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_fye2n"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_w8u4r")
 
 [node name="gunTest" type="Node2D"]
