@@ -1,5 +1,5 @@
 extends Node2D
-@export var maxMags = 3
+@export var maxMags = 10
 var aimMode = false
 var rightHoldTime := 0.0
 const AIM_HOLD_THRESHOLD := 0.15 # seconds
@@ -14,6 +14,7 @@ var projContainer # container for the existing fired projectiles (probably only 
 var magContainer
 @export var magnet: PackedScene
 var player
+signal magChange # calls a function in player to update magnet list and handle movement
 
 func _ready() -> void:
 	SignalBus.connect("createMagnet", Callable(self, "handleMagnetCreation")) # connection ...
@@ -73,5 +74,6 @@ func handlePlayerMagnets(magnet):
 		movementMags.append(magnet)
 		print("magnet added")
 		magnet.grouped = true
+	magChange.emit()
 	
 	

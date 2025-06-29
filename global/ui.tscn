@@ -8,6 +8,7 @@
 script = ExtResource("1_ctvt2")
 
 [node name="aimArrow" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(891, 818)
 texture = ExtResource("3_qljyr")
 offset = Vector2(0, -148)
@@ -19,3 +20,10 @@ offset_left = 12.0
 offset_top = 14.0
 offset_right = 95.0
 offset_bottom = 51.0
+
+[node name="aimModeIndic" type="TextEdit" parent="."]
+offset_left = 12.0
+offset_top = 56.0
+offset_right = 113.0
+offset_bottom = 91.0
+text = "AIM MODE"

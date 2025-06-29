@@ -11,8 +11,11 @@ func _ready() -> void:
 	SignalBus.connect("updateAimArrowVisibility", Callable(self, "setAimArrowVisibility"))	
 
 	
-func setAimArrowVisibility(x):
-	aimArrow.visible = x
+func setAimArrowVisibility(x): # disabled
+	pass
+	$aimModeIndic.visible = x
+	#aimArrow.visible = x
+
 
 func _process(delta: float) -> void:
 	$fpsCounter.text = str(Engine.get_frames_per_second()) # display fps to track performance of stuff
