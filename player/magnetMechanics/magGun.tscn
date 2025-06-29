@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://es7al1vowl84"]
+[gd_scene load_steps=4 format=3 uid="uid://es7al1vowl84"]
 
 [ext_resource type="Script" uid="uid://bspmfyn6emhqe" path="res://player/magnetMechanics/magGun.gd" id="1_vmw3l"]
 [ext_resource type="PackedScene" uid="uid://sfmt2bo8ld41" path="res://player/magnetMechanics/magnetProjectile.tscn" id="2_3l2m4"]
+[ext_resource type="PackedScene" uid="uid://q8cyxdvbdbln" path="res://player/magnetMechanics/magnet.tscn" id="3_oanr4"]
 
 [node name="MagGun" type="Node2D"]
 script = ExtResource("1_vmw3l")
 projectile = ExtResource("2_3l2m4")
+magnet = ExtResource("3_oanr4")
 
 [node name="projContainer" type="Node" parent="."]
 

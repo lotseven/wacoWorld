@@ -12,6 +12,7 @@ var pointerAngle
 var projContainer # container for the existing fired projectiles (probably only contains 1 at any time)
 @export var projectile: PackedScene
 var magContainer
+@export var magnet: PackedScene
 
 var player
 
@@ -58,7 +59,10 @@ func handleFiring(): # when player releases, it fires
 	projContainer.add_child(newProjectile)
 	
 func handleMagnetCreation(object, pos, angle):
-	pass
+	var newMagnet = magnet.instantiate()
+	newMagnet.pos = pos
+	newMagnet.angle = angle
+	magContainer.add_child(newMagnet)
 	
 func clickRcvL(coords): #does nothing rn
 	#print("left clicked @: ", coords, " (printed from magGun.gd)")
