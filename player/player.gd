@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED := 35000.0
+const SPEED := 12000.0
 const JUMP_FORCE := -200.0
 const GRAVITY := 900.0
 var camOffset = 150
@@ -11,6 +11,7 @@ var camOffSaved = 150
 var activeMagnetList
 var magAcc = 3
 var maxMags = 3
+var footstepSound = "res://sounds/playerSfx/steps.mp3"
 
 func _ready() -> void:
 	$magManager.connect("magChange", Callable(self, "updateMagMovement"))
@@ -31,12 +32,18 @@ func _physics_process(delta):
 func groundedMovement(delta):
 	velocity.y += GRAVITY * delta
 	var input_direction := 0.0
-	if Input.is_action_pressed("left"):
-		input_direction -= 1.0
-	if Input.is_action_pressed("right"):
-		input_direction += 1.0
-
+	
+	if Input.is_action_pressed("left") or Input.is_action_pressed("right"): # both moving and sound handling
+		if Input.is_action_pressed("left"): # stupid idiot checking again 😂 bruh really wants to know
+			input_direction -= 1.0
+		elif Input.is_action_pressed("right"):
+			input_direction += 1.0
+		if is_on_floor(): FxManager.startLoopedFx('steps', footstepSound)
+		else: FxManager.stopLoopedFx('steps')
+	else: FxManager.stopLoopedFx('steps')
+	
 	velocity.x = input_direction * SPEED * delta
+	
 	move_and_slide()
 
 	if input_direction != 0:
@@ -68,7 +75,7 @@ func get_midpoint(node_list: Array) -> Vector2:
 		return Vector2.ZERO
 	return sum / count
 
-# Toggle hitboxes
+# toggle hitboxes
 func switch_to_grounded():
 	groundHitbox.disabled = false
 	magHitbox.disabled = true

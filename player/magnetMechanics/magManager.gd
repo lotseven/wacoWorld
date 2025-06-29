@@ -15,16 +15,20 @@ var magContainer
 @export var magnet: PackedScene
 var player
 signal magChange # calls a function in player to update magnet list and handle movement
+var magClickMode = 'activating' # choose whether to be activating, recalling, grouping mags
+
+var createDeleteSFX = "res://sounds/playerSfx/button-202966.mp3"
+var groupingSFX = "res://sounds/playerSfx/button-4-214382.mp3"
 
 func _ready() -> void:
-	
 	SignalBus.connect("createMagnet", Callable(self, "handleMagnetCreation")) # connection ...
-	SignalBus.connect("magnetButtonClick", Callable(self, "handlePlayerMagnets")) # connection ...
+	SignalBus.connect("magnetButtonClick", Callable(self, "handleMagClicks")) # connection ...
 	
 	player = get_tree().get_first_node_in_group("player") # player noad !!
 	projContainer = $projContainer # self explanatory
 	magContainer = $magContainer
 	SignalBus.emit_signal("updateAimArrowVisibility", false)
+	SignalBus.emit_signal("switchToRecall", false)
 	# YOU CAN ALSO DO Pointer.isLeftHeld & Pointer.isRightHeld for mouse ins
 	
 	maxMags = player.maxMags # gets max magnet count
@@ -34,6 +38,7 @@ func _process(delta: float) -> void:
 	pointerCoords = Pointer.position
 	pointerVec = (pointerCoords - global_position).normalized()
 	pointerAngle = rad_to_deg(atan2(pointerVec[1], pointerVec[0])) + 180
+	handleMagnetRecalls()
 	
 func manageAimingMode(delta: float) -> void: # goes in and out of aiming mode
 	if Pointer.isRightHeld: # waits for half a second of holding before entering aim mode
@@ -67,16 +72,35 @@ func handleMagnetCreation(object, pos, angle):
 	newMagnet.pos = pos
 	newMagnet.angle = angle
 	magContainer.add_child(newMagnet)
+	FxManager.playFx(createDeleteSFX)
 
-func handlePlayerMagnets(magnet):
-	if movementMags.has(magnet):
-		movementMags.erase(magnet)
-		print("magnet removed")
-		magnet.grouped = false
-	else: 
-		movementMags.append(magnet)
-		print("magnet added")
-		magnet.grouped = true
-	magChange.emit()
-	
+func handleMagClicks(magnet):
+	match magClickMode:
+		'activating': # IF YOUR CLICK IS IN ACTIVATION MODE
+			if movementMags.has(magnet):
+				movementMags.erase(magnet)
+				print("magnet removed")
+				magnet.grouped = false
+			else: 
+				movementMags.append(magnet)
+				print("magnet added")
+				magnet.grouped = true
+			magChange.emit()
+			FxManager.playFx(groupingSFX)
+		
+		
+		'recalling': # IF YOUR CLICK IS IN DELETION MODE
+			movementMags.erase(magnet)
+			magnet.queue_free()
+			FxManager.playFx(createDeleteSFX)
+			
+func handleMagnetRecalls(): # DETECTS ENTERING & EXITING RECALL MODE
+	if Input.is_action_pressed("recall"):
+		if magClickMode != 'recalling':
+			magClickMode = 'recalling'
+			SignalBus.emit_signal("switchToRecall", true)
+	else:
+		if magClickMode == 'recalling':
+			magClickMode = 'activating'
+			SignalBus.emit_signal("switchToRecall", false)
 	

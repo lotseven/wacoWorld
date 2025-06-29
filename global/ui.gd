@@ -9,12 +9,14 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	aimArrow = get_node("aimArrow")
 	SignalBus.connect("updateAimArrowVisibility", Callable(self, "setAimArrowVisibility"))	
-
+	SignalBus.connect("switchToRecall", Callable(self, "enterRecallMode"))	
 	
 func setAimArrowVisibility(x): # disabled
-	pass
 	$aimModeIndic.visible = x
-	#aimArrow.visible = x
+	
+func enterRecallMode(x):
+	$delModeIndic.visible = x
+
 
 
 func _process(delta: float) -> void:
