@@ -61,3 +61,7 @@ recall={
 2d_physics/layer_1="player"
 2d_physics/layer_2="walls & such"
 2d_physics/layer_3="projectiles & such"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.103743, 0.103744, 0.103744, 1)

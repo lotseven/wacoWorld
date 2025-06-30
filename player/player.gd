@@ -1,10 +1,11 @@
 extends CharacterBody2D
+class_name player
 
 const SPEED := 12000.0
 const JUMP_FORCE := -200.0
 const GRAVITY := 900.0
-var camOffset = 150
-var camOffSaved = 150
+var camOffset = 600
+var camOffSaved = 600
 @onready var sprite = $Sprite2D
 @onready var groundHitbox = $groundHitbox
 @onready var magHitbox = $magHitbox

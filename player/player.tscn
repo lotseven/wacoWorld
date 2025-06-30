@@ -16,10 +16,10 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
-height = 88.0
+height = 72.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1dw6"]
-height = 60.0
+height = 48.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 2
@@ -33,14 +33,14 @@ drag_horizontal_enabled = true
 [node name="magManager" parent="." instance=ExtResource("2_g1dw6")]
 
 [node name="looks" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.17, 0.17)
 sprite_frames = SubResource("SpriteFrames_rkbax")
 
 [node name="groundHitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 7)
+position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_oul6g")
 
 [node name="magHitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 15)
+position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_g1dw6")
 debug_color = Color(0.441092, 0.504433, 0.849455, 0.42)
