@@ -11,5 +11,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(myVec * speed * delta)
 	if collision:
-		SignalBus.emit_signal("createMagnet", collision.get_collider(), position, myAngle)
-		queue_free()
+		if collision.get_collider().has_method("magAtch"):
+			#print("COLLIDED WITH MAGOBJ (from magnetProjectile.gd)")
+			collision.get_collider().magAtch(collision.get_position()) # THIS MEANS THERE IS NOW A MAGNET ATTACHED TO THE OBJECT
+			queue_free()
+		else:
+			SignalBus.emit_signal("createMagnet", collision.get_collider(), position, myAngle)
+			queue_free()

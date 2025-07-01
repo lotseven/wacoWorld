@@ -1,0 +1,7 @@
+staticbody2d object with staticbodydetection attached
+
+it will need an exported packedscene to switch to
+
+can be anything of your choosing
+
+new object is passed a location and rotation and scale

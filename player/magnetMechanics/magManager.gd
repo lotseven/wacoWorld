@@ -11,7 +11,6 @@ var pointerAngle
 
 var projContainer # container for the existing fired projectiles (probably only contains 1 at any time)
 @export var projectile: PackedScene
-var magContainer
 @export var magnet: PackedScene
 var player
 signal magChange # calls a function in player to update magnet list and handle movement
@@ -26,7 +25,6 @@ func _ready() -> void:
 	
 	player = get_tree().get_first_node_in_group("player") # player noad !!
 	projContainer = $projContainer # self explanatory
-	magContainer = $magContainer
 	SignalBus.emit_signal("updateAimArrowVisibility", false)
 	SignalBus.emit_signal("switchToRecall", false)
 	# YOU CAN ALSO DO Pointer.isLeftHeld & Pointer.isRightHeld for mouse ins
@@ -43,7 +41,7 @@ func _process(delta: float) -> void:
 func manageAimingMode(delta: float) -> void: # goes in and out of aiming mode
 	if Pointer.isRightHeld: # waits for half a second of holding before entering aim mode
 		rightHoldTime += delta
-		var curMags = magContainer.get_child_count()
+		var curMags = MagnetContainer.get_child_count()
 		if rightHoldTime >= AIM_HOLD_THRESHOLD and !aimMode and curMags < maxMags:
 			aimMode = true
 			SignalBus.emit_signal("updateAimArrowVisibility", true)
@@ -71,8 +69,9 @@ func handleMagnetCreation(object, pos, angle):
 	var newMagnet = magnet.instantiate()
 	newMagnet.pos = pos
 	newMagnet.angle = angle
-	magContainer.add_child(newMagnet)
+	MagnetContainer.add_child(newMagnet)
 	FxManager.playFx(createDeleteSFX)
+	
 
 func handleMagClicks(magnet):
 	match magClickMode:

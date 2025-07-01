@@ -9,7 +9,7 @@ height = 22.0
 
 [node name="magnetProjectile" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 10
 script = ExtResource("1_n467q")
 
 [node name="looks" type="Sprite2D" parent="."]
