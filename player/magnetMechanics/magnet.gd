@@ -17,15 +17,14 @@ func _ready():
 	
 
 func buttonPressed() -> void:
-	#if player.clickMode == 'activate':
-	if !grouped: # if the magnet is being joined into the group, make the thing visible
-		glow.visible = true
-	else: 
-		glow.visible = false
-	SignalBus.emit_signal("magnetButtonClick", self) # to magManager
+	#if player.get_node('magManager').magClickMode == 'activating':
+		if !grouped: # if the magnet is being joined into the group, make the thing visible
+			glow.visible = true
+		else: 
+			glow.visible = false
+		SignalBus.emit_signal("magnetButtonClick", self) # to magManager
 	
-func _process(delta: float) -> void:
-	pass
+func _process(delta: float) -> void: # THIS *SHOULD* APPLY TO ALL MAGOBJS
 	if atch != null:
 		offset = atchPos - atch.global_position
 		position = pos - offset

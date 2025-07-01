@@ -1,7 +1,8 @@
-staticbody2d object with staticbodydetection attached
+staticbody2d object with staticbodydetection.gd attached
 
 it will need an exported packedscene to switch to
 
-can be anything of your choosing
+can be anything of your choosing, but it must extend switchedonnode
+and if you redo the ready function, make sure to .ready() in their ready()'s to make the spawnMagnet universal
 
 new object is passed a location and rotation and scale
