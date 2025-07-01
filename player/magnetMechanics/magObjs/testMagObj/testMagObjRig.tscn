@@ -9,6 +9,7 @@ size = Vector2(256, 256)
 [node name="rigidBody" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 2
+mass = 0.008
 script = ExtResource("1_kx37f")
 
 [node name="looks" type="Sprite2D" parent="."]
