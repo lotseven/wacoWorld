@@ -66,12 +66,16 @@ func handleFiring(): # when player releases, it fires
 	projContainer.add_child(newProjectile)
 	
 func handleMagnetCreation(object, pos, angle):
-	var newMagnet = magnet.instantiate()
-	newMagnet.pos = pos
-	newMagnet.angle = angle
-	MagnetContainer.add_child(newMagnet)
-	FxManager.playFx(createDeleteSFX)
-	
+	if object is staticBodyDetection: 
+		object.magAtch(pos, angle) # HERE IS ERROR SOMEWHERE
+	elif object is switchedOnNode:
+		object.magAtch(pos, angle)
+	else: 
+		var newMagnet = magnet.instantiate()
+		newMagnet.pos = pos
+		newMagnet.angle = angle
+		MagnetContainer.add_child(newMagnet) # UNLESS ITS THE GROUND !!!
+	FxManager.playFx(createDeleteSFX)	
 
 func handleMagClicks(magnet):
 	match magClickMode:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ygq4mrt8o8mh"]
 
-[ext_resource type="Script" uid="uid://n68f8yiyy3ti" path="res://player/magnetMechanics/magObjs/staticBodyDetection.gd" id="1_w51to"]
+[ext_resource type="Script" uid="uid://cro5ywl7vbd5q" path="res://player/magnetMechanics/magObjs/testMagObj/testMagObjDetect.gd" id="1_l1rto"]
 [ext_resource type="Texture2D" uid="uid://b6aqs85ugswwk" path="res://placeholderVisuals/ui assets/black square.png" id="2_01l0c"]
 [ext_resource type="PackedScene" uid="uid://bqp1bpe2xhpru" path="res://player/magnetMechanics/magObjs/testMagObj/testMagObjRig.tscn" id="2_cqhcs"]
 
@@ -10,7 +10,7 @@ size = Vector2(256, 256)
 [node name="staticBody" type="StaticBody2D"]
 collision_layer = 8
 collision_mask = 0
-script = ExtResource("1_w51to")
+script = ExtResource("1_l1rto")
 switchTo = ExtResource("2_cqhcs")
 
 [node name="looks" type="Sprite2D" parent="."]

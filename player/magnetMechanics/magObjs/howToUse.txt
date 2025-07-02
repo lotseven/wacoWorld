@@ -1,8 +1,11 @@
-staticbody2d object with staticbodydetection.gd attached
+staticbody2d object with staticbodydetection extended
 
 it will need an exported packedscene to switch to
 
-can be anything of your choosing, but it must extend switchedonnode
-and if you redo the ready function, make sure to .ready() in their ready()'s to make the spawnMagnet universal
+can be anything of your choosing, but should extend switchedOnMode
+if you redo ready, need to .ready() in the new ready to do the super-class version of ready before
+you do your other readying shit
 
 new object is passed a location and rotation and scale
+
+ALSO, WHEN IT ATTACHES TO THE HITBOX, IT INHERITS THE OFFSET. HOW TO MAKE IT NOT DO THIS?

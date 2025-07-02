@@ -13,6 +13,7 @@ mass = 0.008
 script = ExtResource("1_kx37f")
 
 [node name="looks" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.482353)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_mhdfs")
 

@@ -2,13 +2,27 @@ extends Node
 class_name switchedOnNode
 var mag = preload("res://player/magnetMechanics/magnet.tscn")
 var magPos
-var magAng
-var atchPos
+var magAngle
+var atchPos # the pos of the staticbody when it was hit
 
-func spawnMagnet():
+var origPos # original position of the staticDetector 
+var origRot # original rotation of the staticDetector
+
+func _ready() -> void:
+	origPos = self.position
+	origRot = self.rotation_degrees
+	var p = magPos
+	var a = magAngle
+	magAtch(p, a)
+func magAtch(pos, angle):
 	var newMag = mag.instantiate()
-	newMag.pos = magPos
-	newMag.angle = magAng + 180
+	var offset = origPos - self.position
+	var rotOffset = origRot - self.rotation_degrees
+	
+	newMag.pos = pos - atchPos + offset
+	newMag.angle = angle + rotOffset
+	
+	# DOESNT QUITE WORK BUT ITS WAY BETTER
+	
 	newMag.atch = self
-	newMag.atchPos = atchPos
-	MagnetContainer.add_child(newMag)
+	self.add_child(newMag)
