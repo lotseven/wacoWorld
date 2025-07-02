@@ -11,5 +11,5 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(myVec * speed * delta)
 	if collision:
-			SignalBus.emit_signal("createMagnet", collision.get_collider(), position, myAngle)
+			SignalBus.emit_signal("createMagnet", collision.get_collider(), global_position, myAngle)
 			queue_free()

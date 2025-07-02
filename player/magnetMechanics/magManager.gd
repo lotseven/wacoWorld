@@ -1,5 +1,6 @@
 extends Node2D
 var maxMags
+var magForce := 100
 var aimMode = false
 var rightHoldTime := 0.0
 const AIM_HOLD_THRESHOLD := 0.15 # seconds

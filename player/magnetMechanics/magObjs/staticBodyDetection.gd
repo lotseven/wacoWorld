@@ -9,7 +9,7 @@ func magAtch(pos, angle):
 	replaceObj.global_scale = global_scale
 	
 	replaceObj.magPos = pos
-	replaceObj.atchPos = global_position
+	#replaceObj.atchPos = global_position
 	replaceObj.magAngle = angle
 	
 	get_parent().add_child(replaceObj)

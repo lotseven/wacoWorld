@@ -3,7 +3,6 @@ class_name switchedOnNode
 var mag = preload("res://player/magnetMechanics/magnet.tscn")
 var magPos
 var magAngle
-var atchPos # the pos of the staticbody when it was hit
 
 var origPos # original position of the staticDetector 
 var origRot # original rotation of the staticDetector
@@ -19,10 +18,10 @@ func magAtch(pos, angle):
 	var offset = origPos - self.position
 	var rotOffset = origRot - self.rotation_degrees
 	
-	newMag.pos = pos - atchPos + offset
+	newMag.pos = pos# - origPos + offset
 	newMag.angle = angle + rotOffset
 	
 	# DOESNT QUITE WORK BUT ITS WAY BETTER
-	
+	RigidBody2D
 	newMag.atch = self
 	self.add_child(newMag)

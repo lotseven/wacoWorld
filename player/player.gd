@@ -3,7 +3,8 @@ class_name player
 
 const SPEED := 12000.0
 const JUMP_FORCE := -200.0
-const GRAVITY := 900.0
+const GRAVITY := 900.0 #change to force
+const MASS = 100.0
 var camOffset = 600
 var camOffSaved = 600
 @onready var sprite = $Sprite2D
@@ -56,6 +57,9 @@ func updateMagMovement():
 	activeMagnetList = $magManager.movementMags
 
 func magnetMovement(delta):
+	#for m in activeMagnetList:
+		 #var magnitude = sqrt(m.x*m.x + m.y*m.y)
+		
 	var moveTo := get_midpoint(activeMagnetList)
 	var direction := moveTo - position
 	var distance := direction.length()
