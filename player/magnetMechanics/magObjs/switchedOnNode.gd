@@ -13,6 +13,7 @@ func _ready() -> void:
 	var p = magPos
 	var a = magAngle
 	magAtch(p, a)
+	
 func magAtch(pos, angle):
 	var newMag = mag.instantiate()
 	var offset = origPos - self.position
@@ -21,7 +22,6 @@ func magAtch(pos, angle):
 	newMag.pos = pos# - origPos + offset
 	newMag.angle = angle + rotOffset
 	
-	# DOESNT QUITE WORK BUT ITS WAY BETTER
-	RigidBody2D
 	newMag.atch = self
 	self.add_child(newMag)
+	MagnetContainer.magList.append(newMag)

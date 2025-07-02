@@ -42,11 +42,11 @@ func _process(delta: float) -> void:
 func manageAimingMode(delta: float) -> void: # goes in and out of aiming mode
 	if Pointer.isRightHeld: # waits for half a second of holding before entering aim mode
 		rightHoldTime += delta
-		var curMags = MagnetContainer.get_child_count()
+		var curMags = MagnetContainer.magList.size()
 		if rightHoldTime >= AIM_HOLD_THRESHOLD and !aimMode and curMags < maxMags:
 			aimMode = true
 			SignalBus.emit_signal("updateAimArrowVisibility", true)
-			print("Aim mode activated", " (printed from magGun.gd)")
+			#print("Aim mode activated", " (printed from magGun.gd)")
 			
 	else: # if player releases aim button, magnet should fire off
 		rightHoldTime = 0.0
@@ -56,10 +56,6 @@ func manageAimingMode(delta: float) -> void: # goes in and out of aiming mode
 		SignalBus.emit_signal("updateAimArrowVisibility", false)
 		
 func handleFiring(): # when player releases, it fires 
-	print("Aim mode deactivated: fire with vector: ", pointerVec, " (printed from magGun.gd)")
-	# the vector x componant is expected behavior
-	# vectory y componant has positive y = down direction, since all graphics programs
-	# are kind of retarded in that way but thats ok i guess
 	var newProjectile = projectile.instantiate()
 	newProjectile.position = player.position
 	newProjectile.myVec = pointerVec
@@ -76,6 +72,7 @@ func handleMagnetCreation(object, pos, angle):
 		newMagnet.pos = pos
 		newMagnet.angle = angle
 		MagnetContainer.add_child(newMagnet) # UNLESS ITS THE GROUND !!!
+		MagnetContainer.magList.append(newMagnet)
 	FxManager.playFx(createDeleteSFX)	
 
 func handleMagClicks(magnet):
@@ -95,6 +92,7 @@ func handleMagClicks(magnet):
 		
 		'recalling': # IF YOUR CLICK IS IN DELETION MODE
 			movementMags.erase(magnet)
+			MagnetContainer.magList.erase(magnet)
 			magnet.queue_free()
 			FxManager.playFx(createDeleteSFX)
 			
