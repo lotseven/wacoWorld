@@ -14,7 +14,6 @@ func _ready() -> void:
 	var p = magPos
 	var a = magAngle
 	magAtch(p, a)
-	
 func magAtch(pos, angle):
 	var newMag = mag.instantiate()
 	var offset = origPos - self.position
