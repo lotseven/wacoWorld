@@ -1,18 +1,16 @@
 extends StaticBody2D
+class_name staticBodyDetection
 @export var switchTo : PackedScene
-
 # STATIC BODY DETECTION SWITCHER
-func magAtch(pos):
-	print("I have a magnet attached to me at ", pos, " printed from staticBodyDetection.gd")
-	switch(switchTo, pos)
-
-func switch(node, pos):
-	pass
-	var magObj = switchTo.instantiate()
-	magObj.global_position = global_position
-	magObj.global_rotation = global_rotation
-	magObj.global_scale = global_scale
-	magObj.magPos = pos
-	magObj.atchPos = global_position
-	get_parent().add_child(magObj)
+func magAtch(pos, angle):
+	var replaceObj = switchTo.instantiate()
+	replaceObj.global_position = global_position
+	replaceObj.global_rotation = global_rotation
+	replaceObj.global_scale = global_scale
+	
+	replaceObj.magPos = pos
+	replaceObj.atchPos = global_position
+	replaceObj.magAngle = angle
+	
+	get_parent().add_child(replaceObj)
 	queue_free()
