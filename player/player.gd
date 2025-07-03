@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name player
 
 const SPEED := 12000.0
-const JUMP_FORCE := -200.0
+const JUMP_FORCE := -300.0
 const GRAVITY := 900.0 #change to force
 const MASS = 100.0
 var camOffset = 600

@@ -67,12 +67,15 @@ func handleMagnetCreation(object, pos, angle):
 		object.magAtch(pos, angle) # HERE IS ERROR SOMEWHERE
 	elif object is switchedOnNode:
 		object.magAtch(pos, angle)
+	elif object is genPurposeMagnetable:
+		object.magAtch(pos, angle)
 	else: 
 		var newMagnet = magnet.instantiate()
 		newMagnet.pos = pos
 		newMagnet.angle = angle
 		MagnetContainer.add_child(newMagnet) # UNLESS ITS THE GROUND !!!
 		MagnetContainer.magList.append(newMagnet)
+	print(MagnetContainer.magList)
 	FxManager.playFx(createDeleteSFX)	
 
 func handleMagClicks(magnet):
