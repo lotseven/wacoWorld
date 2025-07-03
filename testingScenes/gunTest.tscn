@@ -86,10 +86,10 @@ tile_map_data = PackedByteArray("AAACAAIAAQAAAAQAAAAGAAIAAQAEAAQAAAAKAAIAAQAIAAQ
 tile_set = SubResource("TileSet_fg517")
 
 [node name="testMagObj" parent="." instance=ExtResource("6_0sxee")]
-position = Vector2(-459, 296)
+position = Vector2(-983, 322)
 collision_mask = 10
 
 [node name="spinnyRigThing" parent="." instance=ExtResource("7_fg517")]
-position = Vector2(-331, 653)
+position = Vector2(-280, 450)
 collision_layer = 8
 collision_mask = 10

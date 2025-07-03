@@ -84,11 +84,11 @@ func handleMagClicks(magnet):
 			if movementMags.has(magnet):
 				movementMags.erase(magnet)
 				print("magnet removed")
-				magnet.grouped = false
+				magnet.movementGrouped = false
 			else: 
 				movementMags.append(magnet)
 				print("magnet added")
-				magnet.grouped = true
+				magnet.movementGrouped = true
 			magChange.emit()
 			FxManager.playFx(groupingSFX)
 		
