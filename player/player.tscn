@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2hg2mbdbw5a7"]
+[gd_scene load_steps=6 format=3 uid="uid://c2hg2mbdbw5a7"]
 
 [ext_resource type="Texture2D" uid="uid://cq8cqa6oa61b" path="res://placeholderVisuals/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bfw4sla6ivf1f" path="res://player/player.gd" id="1_rkbax"]
@@ -17,9 +17,6 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
 height = 72.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1dw6"]
-height = 48.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 10
@@ -40,8 +37,3 @@ sprite_frames = SubResource("SpriteFrames_rkbax")
 [node name="groundHitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_oul6g")
-
-[node name="magHitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
-shape = SubResource("CapsuleShape2D_g1dw6")
-debug_color = Color(0.441092, 0.504433, 0.849455, 0.42)

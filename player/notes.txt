@@ -1,0 +1,33 @@
+player will "gesture" towards a magnet & it will be selected
+
+right click to be attracted t'wards it
+
+left click to repel away from it
+
+push proportional to distance
+
+when you release, the force ceases
+
+he has a cloak to be mist born kelsier
+
+
+old midpoint stuff:
+	#var moveTo := get_midpoint(activeMagnetList)
+	#var direction := moveTo - position
+	#var distance := direction.length()
+	#if distance > 1.0:
+		#var speed : float = distance * magAcc
+		#var vel := direction.normalized() * speed
+		#move_and_collide(massDiv * delta)
+
+
+func get_midpoint(node_list: Array) -> Vector2:
+	var sum := Vector2.ZERO
+	var count := 0
+	for node in node_list:
+		if node and node.has_method("get_global_position"):
+			sum += node.global_position
+			count += 1
+	if count == 0:
+		return Vector2.ZERO
+	return sum / count

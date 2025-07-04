@@ -1,10 +1,13 @@
 extends Node2D
+class_name magnet
 var angle # angle
 var pos # position
 var movementGrouped = false # is dis magnet part of da group of mags da playa is movin around
 var glow # da glow
 var player # da playa
 var atch # is this magnet attached to an object or not bool
+
+var selected = false
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
@@ -13,10 +16,13 @@ func _ready():
 	glow = $glow
 	glow.visible = false
 
+func _process(delta: float) -> void:
+	if selected: glow.visible = true
+	else: glow.visible = false
+
 func buttonPressed() -> void:
-	if !movementGrouped: # if the magnet is being joined into the group, make the glow visible 
-		glow.visible = true
-	else: 
-		glow.visible = false
-		
+	#if !movementGrouped: # if the magnet is being joined into the group, make the glow visible 
+		#glow.visible = true
+	#else: 
+		#glow.visible = false
 	SignalBus.emit_signal("magnetButtonClick", self) # to magManager
