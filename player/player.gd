@@ -13,19 +13,25 @@ var camOffSaved = 600
 # references to children or other nodes
 @onready var sprite = $Sprite2D
 @onready var groundHitbox = $groundHitbox
+
 # magnet numbers
 var maxMags = 3
 const MAGNET_FORCE = 280000.0
 const SNAP_DISTANCE = 35.0
+var distanceScale = 1
+var distScaleConst = 300 # since distance scale must inversely relate to speed, i use 1/dist, which might be really small. this scales that back up
+var slopeScale = 3 # the base of the log that determines the scaling of speed/distancea
+var gravScale = 4 # gravity is divided by this when youre doin magnet stuff
+var MAX_SPEED = 1000.0
+
 # sound
 var footstepSound = "res://sounds/playerSfx/steps.mp3"
+
 # moving on magnets stuff
 var flingMag 
 var wantsToPull = false
 var wantsToPush = false
-var distanceScale = 1
-var distScaleConst = 300 # since distance scale must inversely relate to speed, i use 1/dist, which might be really small. this scales that back up
-var slopeScale = 3 # the base of the log that determines the scaling of speed/distance
+
 func _ready() -> void:
 	$magManager.connect("magChange", Callable(self, "updateMagMovement"))
 	camOffset = camOffSaved
@@ -65,6 +71,8 @@ func groundedMovement(delta):
 	#gravity
 	if not is_on_floor() and !wantsToPull and !wantsToPush:
 		velocity.y += GRAVITY * delta
+	elif not is_on_floor(): 
+		velocity.y += GRAVITY/gravScale * delta
 
 		if is_on_floor(): FxManager.startLoopedFx('steps', footstepSound)
 		else: FxManager.stopLoopedFx('steps')
@@ -78,16 +86,17 @@ func groundedMovement(delta):
 
 func magnetMovement(delta):
 	if flingMag and wantsToPull:
-		var vec_to_mag = flingMag.global_position - global_position
-		var dist = vec_to_mag.length()
+		var vecToMag = flingMag.global_position - global_position
+		var dist = vecToMag.length()
 		distanceScale = 1/dist
+		
 		if dist < SNAP_DISTANCE: # snaps position to the magnet if you click and get real close
 			global_position = flingMag.global_position
 			velocity = Vector2.ZERO
 			flingMag = null
 			
 		else: # 
-			var direction = vec_to_mag.normalized()
+			var direction = vecToMag.normalized()
 			var magForce = direction * MAGNET_FORCE * (log(1 + (distScaleConst / dist))/log(slopeScale))
 			print(magForce)
 			var acceleration = magForce / MASS

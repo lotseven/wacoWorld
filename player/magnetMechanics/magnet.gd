@@ -19,10 +19,3 @@ func _ready():
 func _process(delta: float) -> void:
 	if selected: glow.visible = true
 	else: glow.visible = false
-
-func buttonPressed() -> void:
-	#if !movementGrouped: # if the magnet is being joined into the group, make the glow visible 
-		#glow.visible = true
-	#else: 
-		#glow.visible = false
-	SignalBus.emit_signal("magnetButtonClick", self) # to magManager

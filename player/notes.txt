@@ -10,6 +10,7 @@ when you release, the force ceases
 
 he has a cloak to be mist born kelsier
 
+magnets that are sideways in the ground are buggy ?
 
 old midpoint stuff:
 	#var moveTo := get_midpoint(activeMagnetList)

@@ -16,7 +16,7 @@ collision_mask = 16
 [node name="magCollision" type="CollisionPolygon2D" parent="magnetDetection"]
 modulate = Color(0.462745, 1, 1, 1)
 position = Vector2(0, -1)
-polygon = PackedVector2Array(50, -80, 0, 0, 50, 80, 400, 110, 1300, 240, 1300, -240, 400, -110)
+polygon = PackedVector2Array(50, -80, 0, 0, 50, 80, 400, 200, 1300, 600, 1300, -600, 400, -200)
 
 [node name="projContainer" type="Node" parent="."]
 
