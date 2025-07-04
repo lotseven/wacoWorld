@@ -3,7 +3,7 @@ class_name player
 
 const SPEED := 12000.0
 const JUMP_FORCE := -300.0
-const GRAVITY := 900.0 #change to force
+const GRAVITY := 980.0 #change to force
 const MASS = 100.0
 var camOffset = 600
 var camOffSaved = 600
@@ -34,7 +34,6 @@ func _physics_process(delta):
 func groundedMovement(delta):
 	velocity.y += GRAVITY * delta
 	var input_direction := 0.0
-	
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right"): # both moving and sound handling
 		if Input.is_action_pressed("left"): # stupid idiot checking again 😂 bruh really wants to know
 			input_direction -= 1.0
@@ -43,11 +42,8 @@ func groundedMovement(delta):
 		if is_on_floor(): FxManager.startLoopedFx('steps', footstepSound)
 		else: FxManager.stopLoopedFx('steps')
 	else: FxManager.stopLoopedFx('steps')
-	
 	velocity.x = input_direction * SPEED * delta
-	
 	move_and_slide()
-
 	if input_direction != 0:
 		$looks.flip_h = input_direction < 0
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
@@ -58,12 +54,13 @@ func updateMagMovement():
 
 func magnetMovement(delta):
 	#for m in activeMagnetList:
-		 #var magnitude = sqrt(m.x*m.x + m.y*m.y)
-		
+		#var vec2mag = (global_position - m.global_position) # vector from p to mag
+		#var forceUnitVector = vec2mag.normalized * $magManager.magForce
+		#var massDiv = forceUnitVector/MASS
+
 	var moveTo := get_midpoint(activeMagnetList)
 	var direction := moveTo - position
 	var distance := direction.length()
-
 	if distance > 1.0:
 		var speed : float = distance * magAcc
 		var vel := direction.normalized() * speed

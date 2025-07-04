@@ -2,7 +2,7 @@ extends genPurposeMagnetable
 
 var center := Vector2.ZERO
 var radius := 250
-var angular_speed := 1.0 # radians per second
+var angular_speed := 4.0 # radians per second
 
 func _ready():
 	super._ready()
