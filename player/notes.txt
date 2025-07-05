@@ -32,3 +32,34 @@ func get_midpoint(node_list: Array) -> Vector2:
 	if count == 0:
 		return Vector2.ZERO
 	return sum / count
+	
+	#func handleMagClicks(magnet):
+	#match magClickMode:
+		#'activating': # IF YOUR CLICK IS IN ACTIVATION MODE
+			#if movementMags.has(magnet):
+				#movementMags.erase(magnet)
+				#print("magnet removed")
+				#magnet.movementGrouped = false
+			#else: 
+				#movementMags.append(magnet)
+				#print("magnet added")
+				#magnet.movementGrouped = true
+			#magChange.emit()
+			#FxManager.playFx(groupingSFX)
+		#
+		#
+		#'recalling': # IF YOUR CLICK IS IN DELETION MODE
+			#movementMags.erase(magnet)
+			#MagnetContainer.magList.erase(magnet)
+			#magnet.queue_free()
+			#FxManager.playFx(createDeleteSFX)
+			#
+#func handleMagnetRecalls(): # DETECTS ENTERING & EXITING RECALL MODE
+	#if Input.is_action_pressed("recall"):
+		#if magClickMode != 'recalling':
+			#magClickMode = 'recalling'
+			#SignalBus.emit_signal("switchToRecall", true)
+	#else:
+		#if magClickMode == 'recalling':
+			#magClickMode = 'activating'
+			#SignalBus.emit_signal("switchToRecall", false)

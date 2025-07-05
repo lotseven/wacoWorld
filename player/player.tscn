@@ -16,24 +16,26 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
-height = 72.0
+height = 122.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 10
 script = ExtResource("1_rkbax")
 
 [node name="camera" type="Camera2D" parent="."]
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 drag_horizontal_enabled = true
+drag_right_margin = 0.02
+drag_bottom_margin = 0.02
 
 [node name="magManager" parent="." instance=ExtResource("2_g1dw6")]
 
 [node name="looks" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.17, 0.17)
+scale = Vector2(0.28, 0.28)
 sprite_frames = SubResource("SpriteFrames_rkbax")
 
-[node name="groundHitbox" type="CollisionShape2D" parent="."]
+[node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_oul6g")
