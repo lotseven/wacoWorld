@@ -29,7 +29,16 @@ offset_right = 113.0
 offset_bottom = 91.0
 text = "AIM MODE"
 
+[node name="groupModeIndic" type="TextEdit" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = 12.0
+offset_top = 95.0
+offset_right = 139.0
+offset_bottom = 130.0
+text = "GROUP MODE"
+
 [node name="delModeIndic" type="TextEdit" parent="."]
+visible = false
 modulate = Color(1, 0, 0, 1)
 offset_left = 12.0
 offset_top = 94.0

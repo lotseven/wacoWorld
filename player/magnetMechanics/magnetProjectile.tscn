@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://c5hkud138f8ua" path="res://player/magnetMechanics/magnetProjectile.gd" id="1_n467q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n467q"]
-radius = 7.0
-height = 14.0
+radius = 8.0
+height = 16.0
 
 [node name="magnetProjectile" type="CharacterBody2D"]
 collision_layer = 4

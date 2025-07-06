@@ -5,18 +5,24 @@ var pointerCoords
 var pointerVec 
 var pointerAngle
 
-func _ready() -> void:
+func _ready() -> void: 
+	$delModeIndic.visible = false     
+	$aimModeIndic.visible = false                     
+	$groupModeIndic.visible = false
 	player = get_tree().get_first_node_in_group("player")
 	aimArrow = get_node("aimArrow")
 	SignalBus.connect("updateAimArrowVisibility", Callable(self, "setAimArrowVisibility"))	
 	SignalBus.connect("switchToRecall", Callable(self, "enterRecallMode"))	
+	SignalBus.connect("switchToGrouping", Callable(self, "enterGroupingMode"))	
 	
-func setAimArrowVisibility(x): # disabled
+func setAimArrowVisibility(x):
 	$aimModeIndic.visible = x
 	
 func enterRecallMode(x):
 	$delModeIndic.visible = x
 
+func enterGroupingMode(x):
+	$groupModeIndic.visible = x
 
 
 func _process(delta: float) -> void:

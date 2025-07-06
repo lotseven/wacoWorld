@@ -1,6 +1,7 @@
 extends Node2D
 var maxMags
 var aimMode = false
+var groupMode = false
 var rightHoldTime := 0.0
 const AIM_HOLD_THRESHOLD := 0.15 # seconds
 var movementMags = [] # variable to store a list of magnets which will be used to move around
@@ -34,6 +35,8 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	manageAimingMode(delta)
+	manageGroupingMode()
+	handleGrouping()
 	updatePointer()
 	rotateMagShape()
 	flingMag = selectMagnet()
@@ -47,7 +50,7 @@ func manageAimingMode(delta: float) -> void: # goes in and out of aiming mode
 			aimMode = true
 			SignalBus.emit_signal("updateAimArrowVisibility", true)
 			
-	else: # if player releases aim button, magnet should fire off
+	elif Input.is_action_just_released("aim"): # if player releases aim button, magnet should fire off
 		rightHoldTime = 0.0
 		if aimMode:
 			handleFiring()
@@ -74,10 +77,10 @@ func handleMagnetCreation(object, pos, angle):
 		newMagnet.angle = angle
 		MagnetContainer.add_child(newMagnet) # UNLESS ITS THE GROUND !!!
 		MagnetContainer.magList.append(newMagnet)
-	print(MagnetContainer.magList)
 	FxManager.playFx(createDeleteSFX)	
 
-	
+
+		
 func updatePointer():
 	pointerCoords = Pointer.global_position
 	pointerVec = (pointerCoords - global_position).normalized()
@@ -123,5 +126,14 @@ func recallMags():
 			recallSoundTracker = true
 	if recallSoundTracker:
 		FxManager.playFx(createDeleteSFX)
-	
-		
+
+func manageGroupingMode(): # goes in and out of aiming mode
+	if Input.is_action_just_pressed('group'): 
+		groupMode = true
+		SignalBus.emit_signal('switchToGrouping', true)
+	if Input.is_action_just_released('group'): # if player releases group button, you exit aimMode
+		groupMode = false
+		SignalBus.emit_signal('switchToGrouping', false)
+
+func handleGrouping():
+	pass

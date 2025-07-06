@@ -44,7 +44,7 @@ func _physics_process(delta):
 
 func movement(delta):
 	groundedMovement(delta)
-	magnetMovement(delta)
+	if !$magManager.groupMode: magnetMovement(delta)
 	friction(delta)
 	move_and_slide()
 

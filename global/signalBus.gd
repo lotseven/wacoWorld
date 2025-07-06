@@ -5,3 +5,4 @@ signal createMagnet(object, position, angle) # from magnetProjectile to magManag
 #signal magnetButtonClick(magnet) # from magnet to magManager
 
 #signal switchToRecall(visible) # from magManager to ui
+signal switchToGrouping(visible) # from magManager to ui
