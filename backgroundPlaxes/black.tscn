@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdt41dvdc4ke4"]
+
+[ext_resource type="Texture2D" uid="uid://drhwslmp83fqb" path="res://placeholderArt/environment/fullBackground.png" id="1_kkugj"]
+[ext_resource type="AudioStream" uid="uid://ev0n76cwmu2j" path="res://sounds/ambient/ambience-wind-blowing-through-trees-01-186986.mp3" id="5_270as"]
+
+[node name="testBg" type="ParallaxBackground"]
+
+[node name="black" type="ParallaxLayer" parent="."]
+position = Vector2(0, 639)
+scale = Vector2(2, 2)
+motion_scale = Vector2(0.02, 0.02)
+
+[node name="looks" type="Sprite2D" parent="black"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_kkugj")
+
+[node name="looks2" type="Sprite2D" parent="black"]
+position = Vector2(4096, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kkugj")
+
+[node name="looks3" type="Sprite2D" parent="black"]
+position = Vector2(-4096, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kkugj")
+
+[node name="backgroundAmbi" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_270as")
+autoplay = true
+parameters/looping = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2hg2mbdbw5a7"]
 
-[ext_resource type="Texture2D" uid="uid://cq8cqa6oa61b" path="res://placeholderVisuals/player.png" id="1_oul6g"]
+[ext_resource type="Texture2D" uid="uid://cq8cqa6oa61b" path="res://placeholderArt/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bfw4sla6ivf1f" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://es7al1vowl84" path="res://player/magnetMechanics/magManager.tscn" id="2_g1dw6"]
 

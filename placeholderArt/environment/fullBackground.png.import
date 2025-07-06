@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6aqs85ugswwk"
-path="res://.godot/imported/black square.png-67cc25dd77bce0d851d4c3c3365f4378.ctex"
+uid="uid://drhwslmp83fqb"
+path="res://.godot/imported/fullBackground.png-5e52a5f7fd24d8a5212ec0f584be21ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/ui assets/black square.png"
-dest_files=["res://.godot/imported/black square.png-67cc25dd77bce0d851d4c3c3365f4378.ctex"]
+source_file="res://placeholderArt/environment/fullBackground.png"
+dest_files=["res://.godot/imported/fullBackground.png-5e52a5f7fd24d8a5212ec0f584be21ec.ctex"]
 
 [params]
 

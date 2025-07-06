@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://44kq0ne0dinu"
-path="res://.godot/imported/mousePointer.png-5d12ce9bac3e6ee2802fd93999cc3beb.ctex"
+uid="uid://cvrbjl5p0w1yt"
+path="res://.godot/imported/projectile.png-e404f55eb6cf31e47d192f8bf6cd99ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/ui assets/mousePointer.png"
-dest_files=["res://.godot/imported/mousePointer.png-5d12ce9bac3e6ee2802fd93999cc3beb.ctex"]
+source_file="res://placeholderArt/ui assets/projectile.png"
+dest_files=["res://.godot/imported/projectile.png-e404f55eb6cf31e47d192f8bf6cd99ff.ctex"]
 
 [params]
 

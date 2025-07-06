@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by3n02he02gki"
-path="res://.godot/imported/furtherMountains.png-5b92cc376a8340596b36f8a7acfe1cbd.ctex"
+uid="uid://bc5xw5vpo0k80"
+path="res://.godot/imported/barrel.png-d4e9716fc3ab2c13c5e6439e9a30da44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/environment/furtherMountains.png"
-dest_files=["res://.godot/imported/furtherMountains.png-5b92cc376a8340596b36f8a7acfe1cbd.ctex"]
+source_file="res://placeholderArt/decor assets/barrel.png"
+dest_files=["res://.godot/imported/barrel.png-d4e9716fc3ab2c13c5e6439e9a30da44.ctex"]
 
 [params]
 

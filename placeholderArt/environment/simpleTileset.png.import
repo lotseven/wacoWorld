@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvrbjl5p0w1yt"
-path="res://.godot/imported/projectile.png-d644685e8d59e4ee91a1a7d1d5012989.ctex"
+uid="uid://cfv3ainmh5rex"
+path="res://.godot/imported/simpleTileset.png-4b447b32f14f818586946c4b0683c909.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/ui assets/projectile.png"
-dest_files=["res://.godot/imported/projectile.png-d644685e8d59e4ee91a1a7d1d5012989.ctex"]
+source_file="res://placeholderArt/environment/simpleTileset.png"
+dest_files=["res://.godot/imported/simpleTileset.png-4b447b32f14f818586946c4b0683c909.ctex"]
 
 [params]
 

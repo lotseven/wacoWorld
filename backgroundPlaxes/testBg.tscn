@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://co7yln8a0bqqc"]
 
-[ext_resource type="Texture2D" uid="uid://bd60ks7pv76m3" path="res://placeholderVisuals/environment/skybox.png" id="1_hpqn2"]
-[ext_resource type="Texture2D" uid="uid://by3n02he02gki" path="res://placeholderVisuals/environment/furtherMountains.png" id="2_8epff"]
+[ext_resource type="Texture2D" uid="uid://bd60ks7pv76m3" path="res://placeholderArt/environment/skybox.png" id="1_hpqn2"]
+[ext_resource type="Texture2D" uid="uid://by3n02he02gki" path="res://placeholderArt/environment/furtherMountains.png" id="2_8epff"]
 [ext_resource type="AudioStream" uid="uid://ev0n76cwmu2j" path="res://sounds/ambient/ambience-wind-blowing-through-trees-01-186986.mp3" id="2_55ip6"]
-[ext_resource type="Texture2D" uid="uid://bk0w45o2hwu1t" path="res://placeholderVisuals/environment/clouds.png" id="2_pbfii"]
-[ext_resource type="Texture2D" uid="uid://dddr8ypl043j" path="res://placeholderVisuals/environment/farMountains.png" id="4_gjojp"]
+[ext_resource type="Texture2D" uid="uid://bk0w45o2hwu1t" path="res://placeholderArt/environment/clouds.png" id="2_pbfii"]
+[ext_resource type="Texture2D" uid="uid://dddr8ypl043j" path="res://placeholderArt/environment/farMountains.png" id="4_gjojp"]
 
 [node name="testBg" type="ParallaxBackground"]
 

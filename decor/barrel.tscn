@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0vtalplyw67a"]
+
+[ext_resource type="Texture2D" uid="uid://bc5xw5vpo0k80" path="res://placeholderArt/decor assets/barrel.png" id="1_m41ee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m41ee"]
+size = Vector2(98, 164)
+
+[node name="Barrel" type="StaticBody2D"]
+z_index = 5
+z_as_relative = false
+collision_layer = 2
+collision_mask = 0
+
+[node name="looks" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_m41ee")
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 45)
+shape = SubResource("RectangleShape2D_m41ee")

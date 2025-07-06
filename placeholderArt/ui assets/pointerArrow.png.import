@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk0w45o2hwu1t"
-path="res://.godot/imported/clouds.png-92ae16291b5625d5ec4a170a463673f9.ctex"
+uid="uid://d56djdfjgx8i"
+path="res://.godot/imported/pointerArrow.png-2936d86fdd64f9faa2b191a79261c591.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/environment/clouds.png"
-dest_files=["res://.godot/imported/clouds.png-92ae16291b5625d5ec4a170a463673f9.ctex"]
+source_file="res://placeholderArt/ui assets/pointerArrow.png"
+dest_files=["res://.godot/imported/pointerArrow.png-2936d86fdd64f9faa2b191a79261c591.ctex"]
 
 [params]
 

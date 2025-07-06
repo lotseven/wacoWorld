@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d56djdfjgx8i"
-path="res://.godot/imported/pointerArrow.png-3db87d7d92b791394778dff3d8d79ba9.ctex"
+uid="uid://by3n02he02gki"
+path="res://.godot/imported/furtherMountains.png-48317b9059e64668de471892b8777523.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/ui assets/pointerArrow.png"
-dest_files=["res://.godot/imported/pointerArrow.png-3db87d7d92b791394778dff3d8d79ba9.ctex"]
+source_file="res://placeholderArt/environment/furtherMountains.png"
+dest_files=["res://.godot/imported/furtherMountains.png-48317b9059e64668de471892b8777523.ctex"]
 
 [params]
 

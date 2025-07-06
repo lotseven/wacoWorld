@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://icchn7obb2rt"]
 
 [ext_resource type="Script" uid="uid://dagc0oj4a8t5c" path="res://global/pointer.gd" id="1_uhkbv"]
-[ext_resource type="Texture2D" uid="uid://44kq0ne0dinu" path="res://placeholderVisuals/ui assets/mousePointer.png" id="2_uxikv"]
-[ext_resource type="Texture2D" uid="uid://7y074oirrs4b" path="res://placeholderVisuals/ui assets/glowCircle.png" id="3_wwphn"]
+[ext_resource type="Texture2D" uid="uid://44kq0ne0dinu" path="res://placeholderArt/ui assets/mousePointer.png" id="2_uxikv"]
+[ext_resource type="Texture2D" uid="uid://7y074oirrs4b" path="res://placeholderArt/ui assets/glowCircle.png" id="3_wwphn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wwphn"]
 animations = [{

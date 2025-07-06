@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://gyel38ppq8ej"]
 
 [ext_resource type="Script" uid="uid://gx4s1mrk6t2x" path="res://player/magnetMechanics/magObjs/spinnyThing/spinnyThingRig.gd" id="1_8nlsd"]
-[ext_resource type="Texture2D" uid="uid://b6aqs85ugswwk" path="res://placeholderVisuals/ui assets/black square.png" id="2_8nch0"]
+[ext_resource type="Texture2D" uid="uid://b6aqs85ugswwk" path="res://placeholderArt/ui assets/black square.png" id="2_8nch0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2adqc"]
 size = Vector2(102, 102)

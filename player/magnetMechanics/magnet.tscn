@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://q8cyxdvbdbln"]
 
 [ext_resource type="Script" uid="uid://cpiohkx8uu17l" path="res://player/magnetMechanics/magnet.gd" id="1_cipvk"]
-[ext_resource type="Texture2D" uid="uid://c1dkvjdms8ggc" path="res://placeholderVisuals/ui assets/magnetEmbed.png" id="1_qc3lg"]
-[ext_resource type="Texture2D" uid="uid://7y074oirrs4b" path="res://placeholderVisuals/ui assets/glowCircle.png" id="2_061rl"]
+[ext_resource type="Texture2D" uid="uid://c1dkvjdms8ggc" path="res://placeholderArt/ui assets/magnetEmbed.png" id="1_qc3lg"]
+[ext_resource type="Texture2D" uid="uid://7y074oirrs4b" path="res://placeholderArt/ui assets/glowCircle.png" id="2_061rl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_061rl"]
 radius = 37.2156
@@ -15,6 +15,12 @@ script = ExtResource("1_cipvk")
 [node name="glow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.835294)
 position = Vector2(1, 2)
+texture = ExtResource("2_061rl")
+
+[node name="redGlow" type="Sprite2D" parent="."]
+modulate = Color(1, 0.0470588, 0, 0.835294)
+position = Vector2(1, 2)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_061rl")
 
 [node name="looks" type="Sprite2D" parent="."]

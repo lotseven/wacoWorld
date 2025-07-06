@@ -107,10 +107,10 @@ func selectMagnet():
 					potentialMagPos = m.global_position
 					mag = m
 		if mag: mag.selected = true # mag should, at this point, be something
-		
 	for m in MagnetContainer.magList: # deselects all magnets that shouldnt be selected
 		if m!= mag:
 			m.selected = false
+			m.pulledOrPushed = false
 	return mag
 	
 func recallMags():

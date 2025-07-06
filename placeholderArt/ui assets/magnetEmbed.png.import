@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfv3ainmh5rex"
-path="res://.godot/imported/simpleTileset.png-59cb09c4b3dec72d05d806fee2e94b80.ctex"
+uid="uid://c1dkvjdms8ggc"
+path="res://.godot/imported/magnetEmbed.png-bfbb011e9128a92ac4ca1bd694937682.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/environment/simpleTileset.png"
-dest_files=["res://.godot/imported/simpleTileset.png-59cb09c4b3dec72d05d806fee2e94b80.ctex"]
+source_file="res://placeholderArt/ui assets/magnetEmbed.png"
+dest_files=["res://.godot/imported/magnetEmbed.png-bfbb011e9128a92ac4ca1bd694937682.ctex"]
 
 [params]
 

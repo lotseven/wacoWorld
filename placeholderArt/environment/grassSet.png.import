@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7y074oirrs4b"
-path="res://.godot/imported/glowCircle.png-5da5f307f50b56bdada8188d834c404b.ctex"
+uid="uid://drrt74lsgu6v5"
+path="res://.godot/imported/grassSet.png-74ef01217da15b8ac1fc73cf8da3febc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholderVisuals/ui assets/glowCircle.png"
-dest_files=["res://.godot/imported/glowCircle.png-5da5f307f50b56bdada8188d834c404b.ctex"]
+source_file="res://placeholderArt/environment/grassSet.png"
+dest_files=["res://.godot/imported/grassSet.png-74ef01217da15b8ac1fc73cf8da3febc.ctex"]
 
 [params]
 
