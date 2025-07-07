@@ -25,4 +25,5 @@ func magAtch(pos, angle):
 func groupingHasChanged():
 	for node in get_children():
 		if node is magnet:
-			groups = node.groups # MAKE IT SO THAT MAGOBJS CAN ONLY HAVE 1 MAGNET
+			groups.append = node.groups # if you need a rigidbody with more than 1 magnet to work
+			# then u gonna have to rewrite this

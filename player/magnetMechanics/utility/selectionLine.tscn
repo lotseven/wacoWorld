@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmigwedyhqx4p"]
+
+[ext_resource type="Texture2D" uid="uid://7y074oirrs4b" path="res://placeholderArt/ui assets/glowCircle.png" id="1_n3esq"]
+
+[node name="selectionLine" type="Line2D"]
+modulate = Color(0.665839, 0.684156, 0.861237, 1)
+texture = ExtResource("1_n3esq")
+texture_mode = 2

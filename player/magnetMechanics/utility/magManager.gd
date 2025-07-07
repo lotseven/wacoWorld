@@ -15,6 +15,7 @@ var projContainer # container for the existing fired projectiles (probably only 
 @export var projectile: PackedScene
 @export var magnet: PackedScene
 @onready var magDetec = $magnetDetection
+@onready var lineLogic = $lineLogic
 
 var player
 signal magChange # calls a function in player to update magnet list and handle movement
@@ -144,10 +145,13 @@ func manageGroupingMode(): # goes in and out of aiming mode
 func handleGrouping():
 	if Input.is_action_just_pressed('lClick'): 
 		groupingClicked = true
-		if selMag: numOfGroups += 1
+		if selMag: 
+			numOfGroups += 1
 	if groupingClicked and selMag and numOfGroups < maxGroups + 1: # so if youve clicked or hovered on a new magnet
 		if !selMag.groups.has(numOfGroups):
-			selMag.groups.append(numOfGroups)		
+			lineLogic.addPoint(selMag.global_position)
+			selMag.groups.append(numOfGroups)
 	if Input.is_action_just_released('lClick'): 
 		groupingClicked = false
+		lineLogic.endLine()
 		SignalBus.emit_signal('groupingHasChanged')

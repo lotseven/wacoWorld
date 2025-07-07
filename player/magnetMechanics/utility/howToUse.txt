@@ -10,3 +10,5 @@ however if you dont want to switch from a staticbody to a rigidbody, which would
 you can just extend genpurposemagnatable on whatever you want to magnetable-ify. no switching 
 between objects. ready() function is important, so don't overwrite or super._ready() if you do. 
 genPurposeMagnetable extends RigidBody2D, so anything with that hitbox can be used.
+
+if you want a rigidbody to respond to more than 1 magnet, rewrite the groupingHasChanged function (which triggers on the signal in SignalBus)
