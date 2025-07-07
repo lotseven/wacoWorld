@@ -26,9 +26,9 @@ var selMag # what magnet the player gets flung 2
 var recallSoundTracker # dont worry about this little variable :)
 
 var groupingClicked = false
-var currentMag # keeps track of currently selected magnet so that we can tell when a new one is selected 
 var numOfGroups = 0
 var maxGroups = 3
+
 func _ready() -> void:
 	SignalBus.connect("createMagnet", Callable(self, "handleMagnetCreation")) # connection ...
 	SignalBus.connect("magnetButtonClick", Callable(self, "handleMagClicks")) # connection ...
@@ -132,7 +132,6 @@ func recallMags():
 			numOfGroups = 0
 	if recallSoundTracker:
 		FxManager.playFx(createDeleteSFX)
-	
 
 func manageGroupingMode(): # goes in and out of aiming mode
 	if Input.is_action_just_pressed('group'): 
@@ -143,13 +142,12 @@ func manageGroupingMode(): # goes in and out of aiming mode
 		SignalBus.emit_signal('switchToGrouping', false)
 
 func handleGrouping():
-	if Input.is_action_just_pressed('lClick') and numOfGroups < maxGroups: 
+	if Input.is_action_just_pressed('lClick'): 
 		groupingClicked = true
-		numOfGroups += 1
+		if selMag: numOfGroups += 1
+	if groupingClicked and selMag and numOfGroups < maxGroups + 1: # so if youve clicked or hovered on a new magnet
+		if !selMag.groups.has(numOfGroups):
+			selMag.groups.append(numOfGroups)		
 	if Input.is_action_just_released('lClick'): 
 		groupingClicked = false
 		SignalBus.emit_signal('groupingHasChanged')
-	if groupingClicked and selMag and currentMag != selMag: # so if youve clicked or hovered on a new magnet
-		currentMag = selMag
-		if !selMag.groups.has(numOfGroups):
-			selMag.groups.append(numOfGroups)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dhqur6mbbxtv"]
+[gd_scene load_steps=16 format=4 uid="uid://dhqur6mbbxtv"]
 
 [ext_resource type="PackedScene" uid="uid://dkthl218sc7dq" path="res://global/ui.tscn" id="1_fye2n"]
 [ext_resource type="PackedScene" uid="uid://c2hg2mbdbw5a7" path="res://player/player.tscn" id="1_w8u4r"]
@@ -8,12 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cfv3ainmh5rex" path="res://placeholderArt/environment/simpleTileset.png" id="5_xmdjq"]
 [ext_resource type="PackedScene" uid="uid://bdt41dvdc4ke4" path="res://backgroundPlaxes/black.tscn" id="6_0sxee"]
 [ext_resource type="PackedScene" uid="uid://c0vtalplyw67a" path="res://decor/barrel.tscn" id="7_fg517"]
+[ext_resource type="PackedScene" uid="uid://gyel38ppq8ej" path="res://player/magnetMechanics/magObjs/testCube/testCube.tscn" id="9_5mqyj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_js0i0"]
 texture = ExtResource("2_xmdjq")
 0:0/size_in_atlas = Vector2i(8, 8)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, 64, 64, -64, 64, -64, -60)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, 64, 64, -64, 64, -64, -64)
 0:8/size_in_atlas = Vector2i(8, 8)
 0:8/0 = 0
 0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -146,12 +147,24 @@ tile_set = SubResource("TileSet_xmdjq")
 [node name="Barrel" parent="." instance=ExtResource("7_fg517")]
 z_index = 0
 z_as_relative = false
-position = Vector2(-871, 776)
+position = Vector2(-1666, 776)
 
 [node name="Barrel2" parent="." instance=ExtResource("7_fg517")]
 z_index = 0
 z_as_relative = false
-position = Vector2(-743, 776)
+position = Vector2(-1794, 776)
 
 [node name="player" parent="." instance=ExtResource("1_w8u4r")]
 position = Vector2(-435, 704)
+
+[node name="testCube" parent="." instance=ExtResource("9_5mqyj")]
+position = Vector2(-1469, 815)
+collision_layer = 8
+collision_mask = 2
+gravity_scale = 1.0
+
+[node name="testCube2" parent="." instance=ExtResource("9_5mqyj")]
+position = Vector2(-1065, 815)
+collision_layer = 8
+collision_mask = 2
+gravity_scale = 1.0
