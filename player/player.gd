@@ -29,7 +29,7 @@ var jumping = false # should check if player is mid-jump
 var footstepSound = "res://sounds/playerSfx/steps.mp3"
 
 # moving on magnets stuff
-var flingMag 
+var selMag 
 var wantsToPull = false
 var wantsToPush = false
 
@@ -50,7 +50,7 @@ func movement(delta):
 
 func groundedMovement(delta):
 	var inputDir = 0.0
-	var amIMagMoving = !((!wantsToPull and !wantsToPush) or ((wantsToPull or wantsToPush) and flingMag == null))	
+	var amIMagMoving = !((!wantsToPull and !wantsToPush) or ((wantsToPull or wantsToPush) and selMag == null))# big ahh if statement 😂 bro really in the mood to Check Conditions
 	if !amIMagMoving: # disables movement
 		if Input.is_action_pressed("left"):
 			if abs(velocity.x) < abs(-SPEED * delta): # so u cant slow down by holding left or right when flyin around
@@ -62,13 +62,13 @@ func groundedMovement(delta):
 			inputDir = 1.0
 		else: # instant friction (idk if non-instant is good)
 			if is_on_floor():
-				velocity.x = 0 # big ahh if statement 😂 bro really in the mood to Check Conditions
+				velocity.x = 0 
 
 	#jumpin
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_FORCE
 		jumping = true
-	if !is_on_floor() and (wantsToPull or wantsToPush) and flingMag:
+	if !is_on_floor() and (wantsToPull or wantsToPush) and selMag:
 		jumping = false
 		
 	#gravity
@@ -88,8 +88,8 @@ func groundedMovement(delta):
 		velocity.y = JUMP_FORCE
 	
 func magnetMovement(delta):
-	if flingMag and (wantsToPull or wantsToPush):
-		var vecToMag = flingMag.global_position - global_position
+	if selMag and (wantsToPull or wantsToPush):
+		var vecToMag = selMag.global_position - global_position
 		var dist = vecToMag.length()
 		distanceScale = 1/dist
 		
@@ -99,14 +99,14 @@ func magnetMovement(delta):
 		elif wantsToPush: # pulling on da mags. i hate it
 			push(distScaleConst, dist, vecToMag, delta)
 		
-	elif flingMag:
-		flingMag.pulledOrPushed = false
+	elif selMag:
+		selMag.pulledOrPushed = false
 
 			
 func updateMovementIntent():
-	flingMag = $magManager.flingMag
-	wantsToPull = Input.is_action_pressed('pull')
-	wantsToPush = Input.is_action_pressed('push')
+	selMag = $magManager.selMag
+	wantsToPull = Input.is_action_pressed('lClick')
+	wantsToPush = Input.is_action_pressed('rClick')
 
 func friction(delta):
 	velocity -= velocity * DRAG_COEFFICIENT * delta
@@ -122,11 +122,11 @@ func pull(distScaleConst, dist, vecToMag, delta):
 	var magForce = direction * MAGNET_FORCE * abs(70000/(dist**2))
 	var acceleration = magForce / MASS
 	velocity += acceleration * delta
-	flingMag.pulledOrPushed = true
+	selMag.pulledOrPushed = true
 
 func push(distScaleConst, dist, vecToMag, delta):
 	var direction = vecToMag.normalized() * -1
 	var magForce = direction * MAGNET_FORCE * abs(distScaleConst/(dist**2)) / 3
 	var acceleration = magForce / MASS
 	velocity += acceleration * delta
-	flingMag.pulledOrPushed = true
+	selMag.pulledOrPushed = true

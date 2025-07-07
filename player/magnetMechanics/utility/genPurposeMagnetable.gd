@@ -1,6 +1,6 @@
 extends RigidBody2D
 class_name genPurposeMagnetable
-var mag = preload("res://player/magnetMechanics/magnet.tscn")
+var mag = preload("res://player/magnetMechanics/utility/magnet.tscn")
 var origPos # original position of the staticDetector 
 var origRot # original rotation of the staticDetector
 

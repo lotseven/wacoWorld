@@ -22,8 +22,13 @@ var magClickMode = 'activating' # choose whether to be activating, recalling, gr
 
 var createDeleteSFX = "res://sounds/playerSfx/button-202966.mp3"
 var groupingSFX = "res://sounds/playerSfx/button-4-214382.mp3"
-var flingMag # what magnet the player gets flung 2
+var selMag # what magnet the player gets flung 2
 var recallSoundTracker # dont worry about this little variable :)
+
+var groupingClicked = false
+var currentMag # keeps track of currently selected magnet so that we can tell when a new one is selected 
+var numOfGroups = 0
+var maxGroups = 3
 func _ready() -> void:
 	SignalBus.connect("createMagnet", Callable(self, "handleMagnetCreation")) # connection ...
 	SignalBus.connect("magnetButtonClick", Callable(self, "handleMagClicks")) # connection ...
@@ -36,10 +41,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	manageAimingMode(delta)
 	manageGroupingMode()
-	handleGrouping()
 	updatePointer()
 	rotateMagShape()
-	flingMag = selectMagnet()
+	selMag = selectMagnet()
+	if groupMode: handleGrouping()
 	recallMags()
 	
 func manageAimingMode(delta: float) -> void: # goes in and out of aiming mode
@@ -79,8 +84,6 @@ func handleMagnetCreation(object, pos, angle):
 		MagnetContainer.magList.append(newMagnet)
 	FxManager.playFx(createDeleteSFX)	
 
-
-		
 func updatePointer():
 	pointerCoords = Pointer.global_position
 	pointerVec = (pointerCoords - global_position).normalized()
@@ -109,13 +112,15 @@ func selectMagnet():
 				if (pointerCoords - m.global_position).length() < (pointerCoords - potentialMagPos).length():
 					potentialMagPos = m.global_position
 					mag = m
-		if mag: mag.selected = true # mag should, at this point, be something
+		if mag and mag.isOnScreen(): mag.selected = true # mag should, at this point, be something
 	for m in MagnetContainer.magList: # deselects all magnets that shouldnt be selected
 		if m!= mag:
 			m.selected = false
 			m.pulledOrPushed = false
 	return mag
-	
+
+
+
 func recallMags():
 	recallSoundTracker = false
 	if Input.is_action_pressed("recall"):
@@ -124,8 +129,10 @@ func recallMags():
 			MagnetContainer.magList.erase(m)
 			m.queue_free()
 			recallSoundTracker = true
+			numOfGroups = 0
 	if recallSoundTracker:
 		FxManager.playFx(createDeleteSFX)
+	
 
 func manageGroupingMode(): # goes in and out of aiming mode
 	if Input.is_action_just_pressed('group'): 
@@ -136,4 +143,13 @@ func manageGroupingMode(): # goes in and out of aiming mode
 		SignalBus.emit_signal('switchToGrouping', false)
 
 func handleGrouping():
-	pass
+	if Input.is_action_just_pressed('lClick') and numOfGroups < maxGroups: 
+		groupingClicked = true
+		numOfGroups += 1
+	if Input.is_action_just_released('lClick'): 
+		groupingClicked = false
+		SignalBus.emit_signal('groupingHasChanged')
+	if groupingClicked and selMag and currentMag != selMag: # so if youve clicked or hovered on a new magnet
+		currentMag = selMag
+		if !selMag.groups.has(numOfGroups):
+			selMag.groups.append(numOfGroups)

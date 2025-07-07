@@ -1,6 +1,6 @@
 extends Node
 class_name switchedOnNode
-var mag = preload("res://player/magnetMechanics/magnet.tscn")
+var mag = preload("res://player/magnetMechanics/utility/magnet.tscn")
 var magPos
 var magAngle
 

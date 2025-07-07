@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://q8cyxdvbdbln"]
 
-[ext_resource type="Script" uid="uid://cpiohkx8uu17l" path="res://player/magnetMechanics/magnet.gd" id="1_cipvk"]
+[ext_resource type="Script" uid="uid://cpiohkx8uu17l" path="res://player/magnetMechanics/utility/magnet.gd" id="1_cipvk"]
 [ext_resource type="Texture2D" uid="uid://c1dkvjdms8ggc" path="res://placeholderArt/ui assets/magnetEmbed.png" id="1_qc3lg"]
 [ext_resource type="Texture2D" uid="uid://7y074oirrs4b" path="res://placeholderArt/ui assets/glowCircle.png" id="2_061rl"]
 
@@ -11,6 +11,13 @@ radius = 37.2156
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_cipvk")
+
+[node name="groupsLabel" type="RichTextLabel" parent="."]
+offset_left = -31.0
+offset_top = 16.0
+offset_right = 35.0
+offset_bottom = 143.0
+bbcode_enabled = true
 
 [node name="glow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.835294)
@@ -31,3 +38,7 @@ flip_v = true
 [node name="colShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_061rl")
 debug_color = Color(0.741874, 0.419914, 0.53827, 0.42)
+
+[node name="visDetect" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -0.875)
+scale = Vector2(1.625, 1.7125)

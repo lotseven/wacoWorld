@@ -7,11 +7,13 @@ var glow # da glow
 var redGlow # da red glow
 var player # da playa
 var atch # is this magnet attached to an object or not bool
-
+var groups = []
 var selected = false
 var pulledOrPushed = false
+var visDetect
 
 func _ready():
+	visDetect = $visDetect
 	player = get_tree().get_first_node_in_group("player")
 	rotation_degrees = angle
 	global_position = pos # pos is passed in, wont change
@@ -25,3 +27,7 @@ func _process(delta: float) -> void:
 	else: glow.visible = false
 	if pulledOrPushed: redGlow.visible = true
 	else: redGlow.visible = false
+	$groupsLabel.text = str(groups)
+	
+func isOnScreen():
+	return visDetect.is_on_screen()
