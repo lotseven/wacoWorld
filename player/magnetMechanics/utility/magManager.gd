@@ -134,6 +134,8 @@ func recallMags():
 			recallSoundTracker = true
 			numOfGroups = 0
 		SignalBus.emit_signal('updateNodeMagnets')
+		SignalBus.emit_signal('groupingHasChanged')
+		lineLogic.recallAll()
 	if recallSoundTracker:
 		FxManager.playFx(createDeleteSFX)
 		

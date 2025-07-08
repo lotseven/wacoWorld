@@ -13,3 +13,7 @@ func addPoint(point):
 		
 func endLine():
 	if currentLine: currentLine.queue_free()
+
+func recallAll():
+	for child in get_children():
+		child.queue_free()
