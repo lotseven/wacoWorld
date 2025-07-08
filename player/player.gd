@@ -77,7 +77,8 @@ func groundedMovement(delta):
 	elif not is_on_floor(): 
 		velocity.y += GRAVITY/gravScale * delta
 
-	if is_on_floor() and (Input.is_action_pressed('left') or Input.is_action_pressed("right")): FxManager.startLoopedFx('steps', footstepSound)
+	if is_on_floor() and velocity != Vector2.ZERO and (Input.is_action_pressed('left') or Input.is_action_pressed("right")): 
+		FxManager.startLoopedFx('steps', footstepSound)# long ahh if statement 😂 bro really wanna Investigate Conditions
 	else: FxManager.stopLoopedFx('steps')
 
 	
