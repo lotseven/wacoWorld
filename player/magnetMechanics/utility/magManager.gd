@@ -84,6 +84,8 @@ func handleMagnetCreation(object, pos, angle):
 		MagnetContainer.add_child(newMagnet) # UNLESS ITS THE GROUND !!!
 		MagnetContainer.magList.append(newMagnet)
 	FxManager.playFx(createDeleteSFX)	
+	SignalBus.emit_signal('updateNodeMagnets')
+	
 
 func updatePointer():
 	pointerCoords = Pointer.global_position
@@ -131,8 +133,10 @@ func recallMags():
 			m.queue_free()
 			recallSoundTracker = true
 			numOfGroups = 0
+		SignalBus.emit_signal('updateNodeMagnets')
 	if recallSoundTracker:
 		FxManager.playFx(createDeleteSFX)
+		
 
 func manageGroupingMode(): # goes in and out of aiming mode
 	if Input.is_action_just_pressed('group'): 
