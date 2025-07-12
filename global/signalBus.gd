@@ -6,5 +6,5 @@ signal createMagnet(object, position, angle) # from magnetProjectile to magManag
 
 #signal switchToRecall(visible) # from magManager to ui
 signal switchToGrouping(visible) # from magManager to ui
-signal groupingHasChanged() # from magManager to nodes that need to update, including: MagnetContainer
+signal groupingHasChanged # from magManager to nodes that need to update, including: MagnetContainer, genPurposeMagnetable
 signal updateNodeMagnets # from magmanager to genpurposemagnetables

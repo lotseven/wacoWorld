@@ -5,6 +5,7 @@ var origPos # original position of the staticDetector
 var origRot # original rotation of the staticDetector
 var groups = []
 var myMags = []
+var otherPositions = []
 
 func _ready() -> void:
 	origPos = self.position
@@ -24,13 +25,25 @@ func magAtch(pos, angle):
 	self.add_child(newMag)
 	MagnetContainer.magList.append(newMag)
 	
+func updateMagnetList():
+	for child in get_children():
+		if child is magnet:
+			if !myMags.has(child): myMags.append(child)
+			
 func groupingChange():
 	for node in get_children():
 		if node is magnet:
 			groups = node.groups # if you need a rigidbody with more than 1 magnet to work
 			# then u gonna have to rewrite this
+		else: groups = []
+	updateOtherPositions()
 
-func updateMagnetList():
-	for child in get_children():
-		if child is magnet:
-			if !myMags.has(child): myMags.append(child)
+func updateOtherPositions(): 
+	otherPositions = [] # reset and rebuild
+	if groups != []:
+		for i in groups:
+			if MagnetContainer.groupedMagList.has(i):
+				for k in MagnetContainer.groupedMagList[i]:
+					if !myMags.has(k):
+						otherPositions.append(k.global_position) # ok its rebuilt :)
+			else: print("Error in genPurposeMagnetable: MagnetContainer.groupedMagList is empty")
