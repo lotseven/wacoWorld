@@ -84,8 +84,7 @@ func handleMagnetCreation(object, pos, angle):
 		MagnetContainer.add_child(newMagnet) # UNLESS ITS THE GROUND !!!
 		MagnetContainer.magList.append(newMagnet)
 	FxManager.playFx(createDeleteSFX)	
-	SignalBus.emit_signal('updateNodeMagnets')
-	
+	SignalBus.emit_signal('updateNodeMagnets')	
 
 func updatePointer():
 	pointerCoords = Pointer.global_position
@@ -147,6 +146,7 @@ func manageGroupingMode(): # goes in and out of aiming mode
 		SignalBus.emit_signal('switchToGrouping', true)
 	if Input.is_action_just_released('group'): # if player releases group button, you exit aimMode
 		groupMode = false
+		lineLogic.endLine()
 		SignalBus.emit_signal('switchToGrouping', false)
 
 func handleGrouping():

@@ -177,11 +177,11 @@ position = Vector2(-435, 704)
 [node name="testCube" parent="." instance=ExtResource("9_5mqyj")]
 position = Vector2(-1469, 815)
 collision_layer = 8
-collision_mask = 2
+collision_mask = 10
 gravity_scale = 1.0
 
 [node name="testCube2" parent="." instance=ExtResource("9_5mqyj")]
 position = Vector2(-1065, 815)
 collision_layer = 8
-collision_mask = 2
+collision_mask = 10
 gravity_scale = 1.0

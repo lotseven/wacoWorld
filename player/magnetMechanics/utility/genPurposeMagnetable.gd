@@ -7,6 +7,9 @@ var groups = []
 var myMags = []
 var otherPositions = []
 
+func _process(delta: float) -> void:
+	updateOtherPositions() # kind of a shitty way to do it ig
+
 func _ready() -> void:
 	origPos = self.position
 	origRot = self.rotation_degrees

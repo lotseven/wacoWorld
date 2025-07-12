@@ -10,7 +10,7 @@ func addPoint(point):
 		currentLine.add_point(point)
 	else:
 		currentLine.add_point(point)
-		
+
 func endLine():
 	if currentLine: currentLine.queue_free()
 

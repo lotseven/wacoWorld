@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdt41dvdc4ke4"]
 
 [ext_resource type="Texture2D" uid="uid://drhwslmp83fqb" path="res://placeholderArt/environment/fullBackground.png" id="1_kkugj"]
-[ext_resource type="AudioStream" uid="uid://ev0n76cwmu2j" path="res://sounds/ambient/ambience-wind-blowing-through-trees-01-186986.mp3" id="5_270as"]
+[ext_resource type="AudioStream" uid="uid://cupjp725l0avb" path="res://sounds/ambient/automotive-factory-general-atmosphere-1-54054.mp3" id="2_kkugj"]
 
 [node name="testBg" type="ParallaxBackground"]
 
@@ -11,6 +11,7 @@ scale = Vector2(2, 2)
 motion_scale = Vector2(0.02, 0.02)
 
 [node name="looks" type="Sprite2D" parent="black"]
+self_modulate = Color(0.230315, 0.230315, 0.230315, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("1_kkugj")
 
@@ -25,6 +26,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_kkugj")
 
 [node name="backgroundAmbi" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_270as")
+stream = ExtResource("2_kkugj")
+volume_db = -14.0
 autoplay = true
 parameters/looping = true
