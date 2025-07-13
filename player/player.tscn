@@ -19,7 +19,7 @@ animations = [{
 height = 122.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
-collision_mask = 10
+collision_mask = 42
 script = ExtResource("1_rkbax")
 
 [node name="camera" type="Camera2D" parent="."]

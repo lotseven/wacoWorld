@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var myVec # the vector in which this projectile shall fly
-@export var speed = 2000 # the speed with which this projtile shall fly
+@export var speed = 5000 # the speed with which this projtile shall fly
 var myAngle # the angle at which this projectile shall appear
 var player
 

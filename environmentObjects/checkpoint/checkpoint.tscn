@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnpo4kn0g0unx"]
+
+[ext_resource type="Script" uid="uid://b22beanvumxrm" path="res://environmentObjects/checkpoint/checkpoint.gd" id="1_c3wsg"]
+[ext_resource type="Texture2D" uid="uid://bc5xw5vpo0k80" path="res://placeholderArt/decor assets/barrel.png" id="1_wa0ji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3wsg"]
+size = Vector2(191, 22)
+
+[node name="checkpoint" type="Area2D"]
+collision_layer = 32
+script = ExtResource("1_c3wsg")
+
+[node name="looks" type="Sprite2D" parent="."]
+position = Vector2(0.50001, 3.37499)
+scale = Vector2(0.442383, 0.026123)
+texture = ExtResource("1_wa0ji")
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 6)
+shape = SubResource("RectangleShape2D_c3wsg")
+debug_color = Color(0.28903, 0.61808, 0.356387, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

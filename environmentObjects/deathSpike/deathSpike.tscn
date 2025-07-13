@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnrjpx4oryhq7"]
+
+[ext_resource type="Texture2D" uid="uid://bmarm01d6wlge" path="res://placeholderArt/ui assets/button.png" id="1_u2bff"]
+[ext_resource type="Script" uid="uid://cciifia70d52n" path="res://environmentObjects/deathSpike/deathSpike.gd" id="1_xxaww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxaww"]
+size = Vector2(34, 36)
+
+[node name="deathSpike" type="Area2D"]
+collision_layer = 32
+script = ExtResource("1_xxaww")
+
+[node name="looks" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_u2bff")
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xxaww")
+debug_color = Color(0.993628, 0, 0.234732, 0.42)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

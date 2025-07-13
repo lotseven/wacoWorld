@@ -20,6 +20,12 @@ Pointer="*res://global/pointer.gd"
 SignalBus="*res://global/signalBus.gd"
 FxManager="*res://global/FxManager.gd"
 MagnetContainer="*res://global/magnetContainer.tscn"
+Ui="*res://global/ui.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [global_group]
 
@@ -78,6 +84,7 @@ group={
 2d_physics/layer_3="projectiles & such"
 2d_physics/layer_4="magObjs & other Special"
 2d_physics/layer_5="magnets"
+2d_physics/layer_6="damagers & checkpoints"
 
 [rendering]
 

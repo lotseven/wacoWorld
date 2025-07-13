@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=4 uid="uid://dhqur6mbbxtv"]
+[gd_scene load_steps=18 format=4 uid="uid://dhqur6mbbxtv"]
 
-[ext_resource type="PackedScene" uid="uid://dkthl218sc7dq" path="res://global/ui.tscn" id="1_fye2n"]
 [ext_resource type="PackedScene" uid="uid://c2hg2mbdbw5a7" path="res://player/player.tscn" id="1_w8u4r"]
 [ext_resource type="Texture2D" uid="uid://whxon4o037p2" path="res://placeholderArt/environment/factoryFloor.png" id="2_xmdjq"]
 [ext_resource type="Texture2D" uid="uid://b6aqs85ugswwk" path="res://placeholderArt/ui assets/black square.png" id="4_0ov8i"]
@@ -8,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://drrt74lsgu6v5" path="res://placeholderArt/environment/grassSet.png" id="5_0ov8i"]
 [ext_resource type="Texture2D" uid="uid://cfv3ainmh5rex" path="res://placeholderArt/environment/simpleTileset.png" id="5_xmdjq"]
 [ext_resource type="PackedScene" uid="uid://bdt41dvdc4ke4" path="res://backgroundPlaxes/black.tscn" id="6_0sxee"]
-[ext_resource type="PackedScene" uid="uid://c0vtalplyw67a" path="res://decor/barrel.tscn" id="7_fg517"]
-[ext_resource type="PackedScene" uid="uid://gyel38ppq8ej" path="res://player/magnetMechanics/magObjs/testCube/testCube.tscn" id="9_5mqyj"]
+[ext_resource type="PackedScene" uid="uid://bnpo4kn0g0unx" path="res://environmentObjects/checkpoint/checkpoint.tscn" id="9_5mqyj"]
+[ext_resource type="PackedScene" uid="uid://dnrjpx4oryhq7" path="res://environmentObjects/deathSpike/deathSpike.tscn" id="11_xlshu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xlshu"]
 texture = ExtResource("4_js0i0")
@@ -130,6 +129,7 @@ texture = ExtResource("5_xmdjq")
 36:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
 [sub_resource type="TileSet" id="TileSet_xmdjq"]
+tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_fg517")
@@ -142,7 +142,7 @@ sources/1 = SubResource("TileSetAtlasSource_5mqyj")
 [node name="ominous glow" type="TileMapLayer" parent="."]
 z_index = 4
 z_as_relative = false
-position = Vector2(11, 372)
+position = Vector2(0, 815)
 tile_map_data = PackedByteArray("AAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAD6/wEAAAAAAAAAAAD5/wEAAAAAAAAAAAD4/wEAAAAAAAAAAAD3/wEAAAAAAAAAAAD2/wEAAAAAAAAAAAD1/wEAAAAAAAAAAAD0/wEAAAAAAAAAAADz/wEAAAAAAAAAAADy/wEAAAAAAAAAAADx/wEAAAAAAAAAAADw/wEAAAAAAAAAAADv/wEAAAAAAAAAAADu/wEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAANAAEAAAAAAAAAAAAOAAEAAAAAAAAAAAAPAAEAAAAAAAAAAAAQAAEAAAAAAAAAAAARAAEAAAAAAAAAAAASAAEAAAAAAAAAAAATAAEAAAAAAAAAAAAUAAEAAAAAAAAAAADt/wEAAAAAAAAAAADs/wEAAAAAAAAAAADr/wEAAAAAAAAAAADq/wEAAAAAAAAAAADp/wEAAAAAAAAAAAAVAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ouy3t")
 
@@ -156,32 +156,15 @@ tile_set = SubResource("TileSet_fg517")
 [node name="levelMap" type="TileMapLayer" parent="."]
 position = Vector2(60, 896)
 scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AADs/+3/AQAMAAAAAAD0/+3/AQAMAAAAAADk//X/AQAwAAAAAADk/+3/AQAEAAwAAADs//X/AQAMAAAAADD0//X/AQAMAAAAADD8//X/AQAkAAAAAAD8/+3/AQAYAAAAAAC5//v/AQAEAAwAAAC5/wMAAQAwAAAAAADB//v/AQAMAAAAAADB/wMAAQAMAAAAADDJ//v/AQAMAAAAAADJ/wMAAQAMAAAAADDR//v/AQAYAAAAAADR/wMAAQAkAAAAAADk/7X/AQAEAAwAAADk/73/AQAwAAAAAADs/7X/AQAMAAAAAADs/73/AQAMAAAAADD0/7X/AQAMAAAAAAD0/73/AQAMAAAAADD8/7X/AQAYAAAAAAD8/73/AQAkAAAAAABDALX/AQAEAAwAAABDAL3/AQAwAAAAAABDAO3/AQAEAAwAAABDAPX/AQAwAAAAAABLALX/AQAMAAAAAABLAL3/AQAMAAAAADBLAO3/AQAMAAAAAABLAPX/AQAMAAAAADBTALX/AQAMAAAAAABTAL3/AQAMAAAAADBTAO3/AQAMAAAAAABTAPX/AQAMAAAAADBbALX/AQAYAAAAAABbAL3/AQAkAAAAAABbAO3/AQAYAAAAAABbAPX/AQAkAAAAAACgALX/AQAEAAwAAACgAL3/AQAwAAAAAACgAO3/AQAEAAwAAACgAPX/AQAwAAAAAACoALX/AQAMAAAAAACoAL3/AQAMAAAAADCoAO3/AQAMAAAAAACoAPX/AQAMAAAAADCwALX/AQAMAAAAAACwAL3/AQAMAAAAADCwAO3/AQAMAAAAAACwAPX/AQAMAAAAADC4ALX/AQAYAAAAAAC4AL3/AQAkAAAAAAC4AO3/AQAYAAAAAAC4APX/AQAkAAAAAAD/ALX/AQAEAAwAAAD/AL3/AQAwAAAAAAD/AO3/AQAEAAwAAAD/APX/AQAwAAAAAAAHAbX/AQAMAAAAAAAHAb3/AQAMAAAAADAHAe3/AQAMAAAAAAAHAfX/AQAMAAAAADAPAbX/AQAMAAAAAAAPAb3/AQAMAAAAADAPAe3/AQAMAAAAAAAPAfX/AQAMAAAAADAXAbX/AQAYAAAAAAAXAb3/AQAkAAAAAAAXAe3/AQAYAAAAAAAXAfX/AQAkAAAAAABcAbX/AQAEAAwAAABcAb3/AQAwAAAAAABcAe3/AQAEAAwAAABcAfX/AQAwAAAAAABkAbX/AQAMAAAAAABkAb3/AQAMAAAAADBkAe3/AQAMAAAAAABkAfX/AQAMAAAAADBsAbX/AQAMAAAAAABsAb3/AQAMAAAAADBsAe3/AQAMAAAAAABsAfX/AQAMAAAAADB0AbX/AQAYAAAAAAB0Ab3/AQAkAAAAAAB0Ae3/AQAYAAAAAAB0AfX/AQAkAAAAAAC7AbX/AQAEAAwAAAC7Ab3/AQAwAAAAAAC7Ae3/AQAEAAwAAAC7AfX/AQAwAAAAAADDAbX/AQAMAAAAAADDAb3/AQAMAAAAADDDAe3/AQAMAAAAAADDAfX/AQAMAAAAADDLAbX/AQAMAAAAAADLAb3/AQAMAAAAADDLAe3/AQAMAAAAAADLAfX/AQAMAAAAADDTAbX/AQAYAAAAAADTAb3/AQAkAAAAAADTAe3/AQAYAAAAAADTAfX/AQAkAAAAAAA=")
+tile_map_data = PackedByteArray("AAD9/wEAAQAMAAAAAGD9/wAAAQAMAAAAAGD9////AQAMAAAAAGD9//7/AQAMAAAAAGD9//3/AQAMAAAAAGD9//z/AQAMAAAAAGD+//v/AQAMAAAAAAD///v/AQAMAAAAAAAAAPv/AQAMAAAAAAABAPv/AQAMAAAAAAACAPv/AQAMAAAAAAADAPv/AQAMAAAAAAAEAPv/AQAMAAAAAAAFAPv/AQAMAAAAAAAGAPv/AQAMAAAAAAAHAPz/AQAMAAAAAFAHAP3/AQAMAAAAAFAHAP7/AQAMAAAAAFAHAP//AQAMAAAAAFAHAAAAAQAMAAAAAFAHAAEAAQAMAAAAAFD+//z/AQAAAAAAAAD///z/AQAAAAAAAAAAAPz/AQAAAAAAAAABAPz/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAADAP3/AQAAAAAAAAADAPz/AQAAAAAAAAAEAPz/AQAAAAAAAAAFAPz/AQAAAAAAAAACAPz/AQAAAAAAAAAGAPz/AQAAAAAAAAAGAP3/AQAAAAAAAAAFAP3/AQAAAAAAAAAEAP3/AQAAAAAAAAAAAP3/AQAAAAAAAAD///3/AQAAAAAAAAD+//3/AQAAAAAAAAD+//7/AQAAAAAAAAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD+/wEAAQAAAAAAAAD///7/AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAD//wEAAQAAAAAAAAAAAP7/AQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAABAP7/AQAAAAAAAAABAP//AQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAADAP7/AQAAAAAAAAADAP//AQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAAEAP7/AQAAAAAAAAAEAP//AQAAAAAAAAAEAAAAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAP7/AQAAAAAAAAAFAP//AQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAP7/AQAAAAAAAAAGAP//AQAAAAAAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAAAAAD9//v/AQAEAAwAAAAHAPv/AQAYAAAAAAA=")
 tile_set = SubResource("TileSet_xmdjq")
 
-[node name="ui" parent="." instance=ExtResource("1_fye2n")]
-
-[node name="Barrel" parent="." instance=ExtResource("7_fg517")]
-z_index = 0
-z_as_relative = false
-position = Vector2(-1666, 776)
-
-[node name="Barrel2" parent="." instance=ExtResource("7_fg517")]
-z_index = 0
-z_as_relative = false
-position = Vector2(-1794, 776)
-
 [node name="player" parent="." instance=ExtResource("1_w8u4r")]
-position = Vector2(-435, 704)
+position = Vector2(-435, 815)
 
-[node name="testCube" parent="." instance=ExtResource("9_5mqyj")]
-position = Vector2(-1469, 815)
-collision_layer = 8
-collision_mask = 10
-gravity_scale = 1.0
+[node name="deathSpike" parent="." instance=ExtResource("11_xlshu")]
+position = Vector2(-1422, 845)
+collision_mask = 33
 
-[node name="testCube2" parent="." instance=ExtResource("9_5mqyj")]
-position = Vector2(-1065, 815)
-collision_layer = 8
-collision_mask = 10
-gravity_scale = 1.0
+[node name="checkpoint" parent="." instance=ExtResource("9_5mqyj")]
+position = Vector2(-881, 878)

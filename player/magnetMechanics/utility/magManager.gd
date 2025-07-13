@@ -121,8 +121,6 @@ func selectMagnet():
 			m.pulledOrPushed = false
 	return mag
 
-
-
 func recallMags():
 	recallSoundTracker = false
 	if Input.is_action_pressed("recall"):
@@ -138,7 +136,6 @@ func recallMags():
 		lineLogic.recallAll()
 	if recallSoundTracker:
 		FxManager.playFx(createDeleteSFX)
-		
 
 func manageGroupingMode(): # goes in and out of aiming mode
 	if Input.is_action_just_pressed('group'): 

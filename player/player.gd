@@ -9,13 +9,15 @@ const MASS = 80
 
 # cam stuff
 var camOffset = 900
-# references to children or other nodes
+
+# references to children or other nodes or resources
 @onready var sprite = $Sprite2D
-#@onready var groundHitbox = $hitbox
+var footstepSound = "res://sounds/playerSfx/steps.mp3"
+var checkpoint # da checkpoint
 
 # magnet numbers
 var maxMags = 3
-const MAGNET_FORCE = 290000.0
+const MAGNET_FORCE = 390000.0
 const DRAG_COEFFICIENT = 1
 const SNAP_DISTANCE = 60.0
 var distanceScale = 1
@@ -25,18 +27,19 @@ var gravScale = 1 # gravity is divided by this when youre doin magnet stuff
 var MAX_SPEED = 1000.0
 var jumping = false # should check if player is mid-jump
 
-# sound
-var footstepSound = "res://sounds/playerSfx/steps.mp3"
-
 # moving on magnets stuff
 var selMag 
 var wantsToPull = false
 var wantsToPush = false
 
 func _ready() -> void:
+	checkpoint = global_position
 	$magManager.connect("magChange", Callable(self, "updateMagMovement"))
+	SignalBus.connect('hurtPlayer', Callable(self, 'hurtPlayer'))
+	SignalBus.connect('updateCheckpoint', Callable(self, 'updateCheckpoint'))
 	$camera.offset = Vector2(0,-camOffset)
 	$camera.position = position
+	
 
 func _physics_process(delta):
 		updateMovementIntent()
@@ -103,7 +106,7 @@ func magnetMovement(delta):
 	elif selMag:
 		selMag.pulledOrPushed = false
 
-			
+
 func updateMovementIntent():
 	selMag = $magManager.selMag
 	wantsToPull = Input.is_action_pressed('lClick')
@@ -131,3 +134,11 @@ func push(distScaleConst, dist, vecToMag, delta):
 	var acceleration = magForce / MASS
 	velocity += acceleration * delta
 	selMag.pulledOrPushed = true
+	
+func hurtPlayer(spike):
+	velocity = Vector2.ZERO
+	global_position = checkpoint
+
+func updateCheckpoint(c):
+	checkpoint = c.global_position
+	
