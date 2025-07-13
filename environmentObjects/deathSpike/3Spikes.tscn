@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy0r7jnq1qgd"]
+
+[ext_resource type="PackedScene" uid="uid://dnrjpx4oryhq7" path="res://environmentObjects/deathSpike/deathSpike.tscn" id="1_w3cha"]
+
+[node name="3Spikes" type="Node2D"]
+
+[node name="deathSpike" parent="." instance=ExtResource("1_w3cha")]
+
+[node name="deathSpike2" parent="." instance=ExtResource("1_w3cha")]
+position = Vector2(-47, 0)
+
+[node name="deathSpike3" parent="." instance=ExtResource("1_w3cha")]
+position = Vector2(47, 0)

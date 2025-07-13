@@ -44,20 +44,16 @@ func _process(delta: float) -> void:
 	manageGroupingMode()
 	updatePointer()
 	rotateMagShape()
-	selMag = selectMagnet()
+	if !aimMode: selMag = selectMagnet()
 	if groupMode: handleGrouping()
 	recallMags()
 	
 func manageAimingMode(delta: float) -> void: # goes in and out of aiming mode
-	if Input.is_action_pressed('aim'): #Pointer.isRightHeld: # waits for half a second of holding before entering aim mode
-		rightHoldTime += delta
+	if Input.is_action_pressed('aim'): # waits for half a second of holding before entering aim mode
 		var curMags = MagnetContainer.magList.size()
-		if rightHoldTime >= AIM_HOLD_THRESHOLD and !aimMode and curMags < maxMags:
-			aimMode = true
-			SignalBus.emit_signal("updateAimArrowVisibility", true)
-			
+		aimMode = true
+		SignalBus.emit_signal("updateAimArrowVisibility", true)
 	elif Input.is_action_just_released("aim"): # if player releases aim button, magnet should fire off
-		rightHoldTime = 0.0
 		if aimMode:
 			handleFiring()
 		aimMode = false
@@ -120,7 +116,7 @@ func selectMagnet():
 			m.selected = false
 			m.pulledOrPushed = false
 	return mag
-
+	
 func recallMags():
 	recallSoundTracker = false
 	if Input.is_action_pressed("recall"):

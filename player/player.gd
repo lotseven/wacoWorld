@@ -24,13 +24,13 @@ var distanceScale = 1
 var distScaleConst = 60000
 var slopeScale = 3 # the base of the log that determines the scaling of speed/distancea, smaller the faster it falls off
 var gravScale = 1 # gravity is divided by this when youre doin magnet stuff
-var MAX_SPEED = 1000.0
 var jumping = false # should check if player is mid-jump
 
 # moving on magnets stuff
 var selMag 
 var wantsToPull = false
 var wantsToPush = false
+var maxSpeed = 2000
 
 func _ready() -> void:
 	checkpoint = global_position
@@ -49,6 +49,7 @@ func movement(delta):
 	groundedMovement(delta)
 	if !$magManager.groupMode: magnetMovement(delta)
 	friction(delta)
+	capSpeed()
 	move_and_slide()
 
 func groundedMovement(delta):
@@ -140,5 +141,10 @@ func hurtPlayer(spike):
 	global_position = checkpoint
 
 func updateCheckpoint(c):
-	checkpoint = c.global_position
+	var newPos = c.global_position
+	newPos.y -= 100
+	checkpoint = newPos
 	
+func capSpeed():
+	if abs(velocity.y) >= maxSpeed: velocity.y = clamp(velocity.y, -maxSpeed, maxSpeed)
+	if abs(velocity.x) >= maxSpeed: velocity.x = clamp(velocity.x, -maxSpeed, maxSpeed)
