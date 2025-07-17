@@ -10,7 +10,9 @@ const MASS = 80
 # cam stuff
 var camOffset = 900
 
-# references to children or other nodes or resources
+# references to children or other nodes or sprites
+# also i signed in on a nother computer hiii
+# holden hiiiiii
 @onready var sprite = $Sprite2D
 var footstepSound = "res://sounds/playerSfx/steps.mp3"
 var checkpoint # da checkpoint
