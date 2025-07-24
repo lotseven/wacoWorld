@@ -10,3 +10,4 @@ signal updateAimArrowVisibility(visible) # from magMangager to ui
 # --- INFO FOR PLAYER --- #
 signal hurtPlayer(obj) # from deathSpike to player
 signal updateCheckpoint(obj) # from checkpoint to player
+signal startEpisode(char) # from anywhere that wants to start an episode to diaManager
