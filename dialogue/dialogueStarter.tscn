@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://egqkkc7j0yta"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjqop"]
+size = Vector2(88, 148)
+
+[node name="dialogueStarter" type="Area2D"]
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sjqop")

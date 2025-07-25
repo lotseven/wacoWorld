@@ -13,7 +13,9 @@ func _ready() -> void:
 	aimArrow = get_node("aimArrow")
 	SignalBus.connect("updateAimArrowVisibility", Callable(self, "setAimArrowVisibility"))	
 	SignalBus.connect("switchToRecall", Callable(self, "enterRecallMode"))	
-	SignalBus.connect("switchToGrouping", Callable(self, "enterGroupingMode"))	
+	SignalBus.connect("switchToGrouping", Callable(self, "enterGroupingMode"))
+	SignalBus.connect("updateCharacterTalking", Callable(self, "updateCharacterTalking"))
+		
 	
 func setAimArrowVisibility(x):
 	$aimModeIndic.visible = x
@@ -32,3 +34,9 @@ func _process(delta: float) -> void:
 		pointerVec = (pointerCoords - player.position).normalized()
 		pointerAngle = rad_to_deg(atan2(pointerVec[1], pointerVec[0])) + 90
 		aimArrow.rotation_degrees = pointerAngle
+
+func updateCharacterTalking(x): # if the character is in range of a dialogic zone sorta
+	#if x:
+		#print("IM A CHARACTER AND IM TALKING")
+		
+	pass

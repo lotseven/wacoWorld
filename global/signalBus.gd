@@ -10,4 +10,5 @@ signal updateAimArrowVisibility(visible) # from magMangager to ui
 # --- INFO FOR PLAYER --- #
 signal hurtPlayer(obj) # from deathSpike to player
 signal updateCheckpoint(obj) # from checkpoint to player
-signal startEpisode(char) # from anywhere that wants to start an episode to diaManager
+signal updateCharacterTalking(x) # from characterModel.gd to UI & dialogManager
+signal dialogModeActive(x) # from dialogManager to anyone who needs that info potentially :3

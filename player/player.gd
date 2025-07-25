@@ -19,7 +19,7 @@ var checkpoint # da checkpoint
 
 # magnet numbers
 var maxMags = 3
-const MAGNET_FORCE = 390000.0
+const MAGNET_FORCE = 230000.0
 const DRAG_COEFFICIENT = 1
 const SNAP_DISTANCE = 60.0
 var distanceScale = 1
@@ -34,11 +34,15 @@ var wantsToPull = false
 var wantsToPush = false
 var maxSpeed = 2000
 
+# talking var
+var readyToTalk = false
+
 func _ready() -> void:
 	checkpoint = global_position
 	$magManager.connect("magChange", Callable(self, "updateMagMovement"))
 	SignalBus.connect('hurtPlayer', Callable(self, 'hurtPlayer'))
 	SignalBus.connect('updateCheckpoint', Callable(self, 'updateCheckpoint'))
+	#SignalBus.connect('updateCharacterTalking', Callable(self, 'updateCharacterTalking'))
 	$camera.offset = Vector2(0,-camOffset)
 	$camera.position = position
 	
@@ -131,13 +135,15 @@ func pull(distScaleConst, dist, vecToMag, delta):
 	velocity += acceleration * delta
 	selMag.pulledOrPushed = true
 
+
 func push(distScaleConst, dist, vecToMag, delta):
-	var direction = vecToMag.normalized() * -1
-	var magForce = direction * MAGNET_FORCE * abs(distScaleConst/(dist**2)) / 3
-	var acceleration = magForce / MASS
-	velocity += acceleration * delta
-	selMag.pulledOrPushed = true
-	
+	#var direction = vecToMag.normalized() * -1
+	#var magForce = direction * MAGNET_FORCE * abs(distScaleConst/(dist**2)) / 3
+	#var acceleration = magForce / MASS
+	#velocity += acceleration * delta
+	#selMag.pulledOrPushed = true
+	pass
+
 func hurtPlayer(spike):
 	velocity = Vector2.ZERO
 	global_position = checkpoint
@@ -150,3 +156,6 @@ func updateCheckpoint(c):
 func capSpeed():
 	if abs(velocity.y) >= maxSpeed: velocity.y = clamp(velocity.y, -maxSpeed, maxSpeed)
 	if abs(velocity.x) >= maxSpeed: velocity.x = clamp(velocity.x, -maxSpeed, maxSpeed)
+	
+func updateCharacterTalking(x):
+	readyToTalk = x

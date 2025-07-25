@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctsx8f53bwo15"]
-
-[ext_resource type="Script" uid="uid://c08t1rp8xrsht" path="res://dialogue/utility/episode.gd" id="1_rfktu"]
-
-[node name="episode" type="Node"]
-script = ExtResource("1_rfktu")
