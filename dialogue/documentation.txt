@@ -1,0 +1,3 @@
+Each character will be their own scene
+they should all have characterModel.gd attached
+they all need a dialogueStarter as a child scene

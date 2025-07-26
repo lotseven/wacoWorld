@@ -7,3 +7,10 @@ size = Vector2(88, 148)
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sjqop")
+
+[node name="prompt" type="Label" parent="."]
+offset_left = -106.0
+offset_top = -110.0
+offset_right = 108.0
+offset_bottom = -87.0
+text = "PRESS BUTTON 2 TALK 2 ME"

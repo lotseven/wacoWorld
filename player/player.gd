@@ -40,20 +40,20 @@ var readyToTalk = false
 func _ready() -> void:
 	checkpoint = global_position
 	$magManager.connect("magChange", Callable(self, "updateMagMovement"))
-	SignalBus.connect('hurtPlayer', Callable(self, 'hurtPlayer'))
-	SignalBus.connect('updateCheckpoint', Callable(self, 'updateCheckpoint'))
-	#SignalBus.connect('updateCharacterTalking', Callable(self, 'updateCharacterTalking'))
 	$camera.offset = Vector2(0,-camOffset)
 	$camera.position = position
-	
+	# -- Signals -- #
+	SignalBus.connect('hurtPlayer', Callable(self, 'hurtPlayer'))
+	SignalBus.connect('updateCheckpoint', Callable(self, 'updateCheckpoint'))
+	SignalBus.connect('updateCharacterTalking', Callable(self, 'updateCharacterTalking'))
 
 func _physics_process(delta):
 		updateMovementIntent()
 		movement(delta)
 
 func movement(delta):
-	groundedMovement(delta)
-	if !$magManager.groupMode: magnetMovement(delta)
+	if !DialogManager.isTalking: groundedMovement(delta)
+	if !$magManager.groupMode and !DialogManager.isTalking: magnetMovement(delta)
 	friction(delta)
 	capSpeed()
 	move_and_slide()
@@ -75,7 +75,7 @@ func groundedMovement(delta):
 				velocity.x = 0 
 
 	#jumpin
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	if is_on_floor() and Input.is_action_just_pressed("jump") and !readyToTalk:
 		velocity.y = JUMP_FORCE
 		jumping = true
 	if !is_on_floor() and (wantsToPull or wantsToPush) and selMag:
@@ -95,8 +95,7 @@ func groundedMovement(delta):
 	#flip sprite
 	if inputDir != 0:
 		$looks.flip_h = inputDir < 0
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
-		velocity.y = JUMP_FORCE
+
 	
 func magnetMovement(delta):
 	if selMag and (wantsToPull or wantsToPush):
@@ -157,5 +156,5 @@ func capSpeed():
 	if abs(velocity.y) >= maxSpeed: velocity.y = clamp(velocity.y, -maxSpeed, maxSpeed)
 	if abs(velocity.x) >= maxSpeed: velocity.x = clamp(velocity.x, -maxSpeed, maxSpeed)
 	
-func updateCharacterTalking(x):
+func updateCharacterTalking(x, b):
 	readyToTalk = x

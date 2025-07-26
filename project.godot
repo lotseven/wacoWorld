@@ -26,9 +26,11 @@ DialogManager="*res://global/dialogManager.gd"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"testCharacterOne": "res://dialogue/testCharacterOne/testCharacterOne.dch"
+}
 directories/dtl_directory={
-"timeline1": "res://dialogue/testCharacterOne/timeline1.dtl"
+"testCharacterOne1": "res://dialogue/testCharacterOne/testCharacterOne1.dtl"
 }
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
@@ -53,7 +55,9 @@ save/encryption_on_exports_only=true
 text/autopauses={}
 layout/style_list=[]
 layout/default_style="Default"
-variables={}
+variables={
+"playerName": ""
+}
 
 [display]
 

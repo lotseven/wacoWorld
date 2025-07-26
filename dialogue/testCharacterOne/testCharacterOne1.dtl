@@ -1,0 +1,8 @@
+join testCharacterOne center
+testCharacterOne: I am test character one. and this is my message
+[text_input text="What is your name 'player'" var="playerName" default="player"]
+- FUCK you test character one...
+	testCharacterOne: I am not fond of '{playerName}'
+- I think im in love testCharacterOne
+	testCharacterOne: No... we shouldn't, '{playerName}, we. ... cant
+[end_timeline]

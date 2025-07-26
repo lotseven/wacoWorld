@@ -40,13 +40,14 @@ func _ready() -> void:
 	maxMags = player.maxMags # gets max magnet count
 	
 func _process(delta: float) -> void:
-	manageAimingMode(delta)
-	manageGroupingMode()
-	updatePointer()
-	rotateMagShape()
-	if !aimMode: selMag = selectMagnet()
-	if groupMode: handleGrouping()
-	recallMags()
+	if !DialogManager.isTalking:
+		manageAimingMode(delta)
+		manageGroupingMode()
+		updatePointer()
+		rotateMagShape()
+		if !aimMode: selMag = selectMagnet()
+		if groupMode: handleGrouping()
+		recallMags()
 	
 func manageAimingMode(delta: float) -> void: # goes in and out of aiming mode
 	if Input.is_action_pressed('aim'): # waits for half a second of holding before entering aim mode
