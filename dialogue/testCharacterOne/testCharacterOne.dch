@@ -6,14 +6,24 @@
 &"custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
-"style": ""
+"style": "custStyle"
 },
-&"default_portrait": "",
+&"default_portrait": "face",
 &"description": "",
 &"display_name": "testCharacterOne",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
-&"portraits": {},
+&"portraits": {
+"face": {
+"export_overrides": {
+"image": "\"res://placeholderArt/decor assets/barrel.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
 &"scale": 1.0
 }

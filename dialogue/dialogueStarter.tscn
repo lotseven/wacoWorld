@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://egqkkc7j0yta"]
+[gd_scene load_steps=3 format=3 uid="uid://egqkkc7j0yta"]
+
+[ext_resource type="FontFile" uid="uid://rv4i3gieslcs" path="res://times.ttf" id="1_achyo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjqop"]
 size = Vector2(88, 148)
@@ -8,9 +10,13 @@ size = Vector2(88, 148)
 [node name="hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sjqop")
 
-[node name="prompt" type="Label" parent="."]
-offset_left = -106.0
-offset_top = -110.0
-offset_right = 108.0
-offset_bottom = -87.0
-text = "PRESS BUTTON 2 TALK 2 ME"
+[node name="prompt" type="RichTextLabel" parent="."]
+offset_left = -33.0
+offset_top = -119.0
+offset_right = 33.0
+offset_bottom = -79.0
+theme_override_fonts/normal_font = ExtResource("1_achyo")
+theme_override_font_sizes/normal_font_size = 26
+text = "Talk "
+horizontal_alignment = 1
+vertical_alignment = 1

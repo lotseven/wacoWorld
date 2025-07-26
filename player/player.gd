@@ -8,7 +8,7 @@ const GRAVITY := 980.0 #change to force
 const MASS = 80
 
 # cam stuff
-var camOffset = 900
+var camOffset = 1400
 
 # references to children or other nodes or sprites
 # also i signed in on a nother computer hiii
@@ -37,6 +37,7 @@ var maxSpeed = 2000
 # talking var
 var readyToTalk = false
 
+
 func _ready() -> void:
 	checkpoint = global_position
 	$magManager.connect("magChange", Callable(self, "updateMagMovement"))
@@ -48,8 +49,9 @@ func _ready() -> void:
 	SignalBus.connect('updateCharacterTalking', Callable(self, 'updateCharacterTalking'))
 
 func _physics_process(delta):
-		updateMovementIntent()
-		movement(delta)
+	updateSelMag()
+	if !DialogManager.isTalking: movement(delta)
+
 
 func movement(delta):
 	if !DialogManager.isTalking: groundedMovement(delta)
@@ -96,7 +98,6 @@ func groundedMovement(delta):
 	if inputDir != 0:
 		$looks.flip_h = inputDir < 0
 
-	
 func magnetMovement(delta):
 	if selMag and (wantsToPull or wantsToPush):
 		var vecToMag = selMag.global_position - global_position
@@ -112,8 +113,7 @@ func magnetMovement(delta):
 	elif selMag:
 		selMag.pulledOrPushed = false
 
-
-func updateMovementIntent():
+func updateSelMag():
 	selMag = $magManager.selMag
 	wantsToPull = Input.is_action_pressed('lClick')
 	wantsToPush = Input.is_action_pressed('rClick')
@@ -133,7 +133,6 @@ func pull(distScaleConst, dist, vecToMag, delta):
 	var acceleration = magForce / MASS
 	velocity += acceleration * delta
 	selMag.pulledOrPushed = true
-
 
 func push(distScaleConst, dist, vecToMag, delta):
 	#var direction = vecToMag.normalized() * -1

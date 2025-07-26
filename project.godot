@@ -30,7 +30,8 @@ directories/dch_directory={
 "testCharacterOne": "res://dialogue/testCharacterOne/testCharacterOne.dch"
 }
 directories/dtl_directory={
-"testCharacterOne1": "res://dialogue/testCharacterOne/testCharacterOne1.dtl"
+"testCharacterOne1": "res://dialogue/testCharacterOne/testCharacterOne1.dtl",
+"testCharacterOne2": "res://dialogue/testCharacterOne/testCharacterOne2.dtl"
 }
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
@@ -53,10 +54,13 @@ animations/cross_fade_default_length=0.5
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://dialogue/premStyle.tres", "res://placeholderArt/decor assets/custStyle.tres"]
+layout/default_style="res://dialogue/premStyle.tres"
 variables={
-"playerName": ""
+"playerName": "",
+"testCharacterOne": {
+"episodeOneDone": false
+}
 }
 
 [display]

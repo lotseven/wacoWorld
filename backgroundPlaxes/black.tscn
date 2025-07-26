@@ -1,29 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdt41dvdc4ke4"]
+[gd_scene load_steps=4 format=3 uid="uid://bdt41dvdc4ke4"]
 
-[ext_resource type="Texture2D" uid="uid://drhwslmp83fqb" path="res://placeholderArt/environment/fullBackground.png" id="1_kkugj"]
+[ext_resource type="Texture2D" uid="uid://dok75ls5eb2oy" path="res://placeholderArt/environment/garage/garageBackground.png" id="1_2786q"]
 [ext_resource type="AudioStream" uid="uid://cupjp725l0avb" path="res://sounds/ambient/automotive-factory-general-atmosphere-1-54054.mp3" id="2_kkugj"]
+[ext_resource type="Texture2D" uid="uid://lyot6yqm3rdy" path="res://placeholderArt/environment/garage/elevator&wall.png" id="2_nqdj2"]
 
 [node name="testBg" type="ParallaxBackground"]
 
-[node name="black" type="ParallaxLayer" parent="."]
-position = Vector2(0, 639)
-scale = Vector2(2, 2)
-motion_scale = Vector2(0.02, 0.02)
+[node name="fullback" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.01, 0.01)
+motion_offset = Vector2(1700, 900)
 
-[node name="looks" type="Sprite2D" parent="black"]
-self_modulate = Color(0.230315, 0.230315, 0.230315, 1)
-scale = Vector2(2, 2)
-texture = ExtResource("1_kkugj")
+[node name="looks" type="Sprite2D" parent="fullback"]
+texture = ExtResource("1_2786q")
 
-[node name="looks2" type="Sprite2D" parent="black"]
-position = Vector2(4096, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("1_kkugj")
+[node name="elev" type="ParallaxLayer" parent="."]
 
-[node name="looks3" type="Sprite2D" parent="black"]
-position = Vector2(-4096, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("1_kkugj")
+[node name="looks" type="Sprite2D" parent="elev"]
+texture = ExtResource("2_nqdj2")
 
 [node name="backgroundAmbi" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_kkugj")
