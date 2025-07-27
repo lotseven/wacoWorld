@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdt41dvdc4ke4"]
+[gd_scene load_steps=3 format=3 uid="uid://bdt41dvdc4ke4"]
 
 [ext_resource type="Texture2D" uid="uid://dok75ls5eb2oy" path="res://placeholderArt/environment/garage/garageBackground.png" id="1_2786q"]
-[ext_resource type="AudioStream" uid="uid://cupjp725l0avb" path="res://sounds/ambient/automotive-factory-general-atmosphere-1-54054.mp3" id="2_kkugj"]
 [ext_resource type="Texture2D" uid="uid://lyot6yqm3rdy" path="res://placeholderArt/environment/garage/elevator&wall.png" id="2_nqdj2"]
 
 [node name="testBg" type="ParallaxBackground"]
@@ -17,9 +16,3 @@ texture = ExtResource("1_2786q")
 
 [node name="looks" type="Sprite2D" parent="elev"]
 texture = ExtResource("2_nqdj2")
-
-[node name="backgroundAmbi" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_kkugj")
-volume_db = -14.0
-autoplay = true
-parameters/looping = true

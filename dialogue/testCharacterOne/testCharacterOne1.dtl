@@ -4,7 +4,7 @@ testCharacterOne: I am test character one. and this is my message
 - FUCK you test character one...
 	testCharacterOne: I am not fond of '{playerName}'
 - I think im in love testCharacterOne
-	testCharacterOne: No... we shouldn't, '{playerName}, we. ... cant
+	testCharacterOne: No... we shouldn't, '{playerName}', we. ... cant
 - I am racist against test characters
 	testCharacterOne: Are... you sure? You hate me because of my ... type of node ... something i cant control
 - I would have voted for barack testcharacter a third term if i could have and im going to make this choice arbitrarily long as well
