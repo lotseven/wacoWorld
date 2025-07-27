@@ -1,14 +1,31 @@
-[gd_scene load_steps=15 format=4 uid="uid://dhqur6mbbxtv"]
+[gd_scene load_steps=19 format=4 uid="uid://dhqur6mbbxtv"]
 
 [ext_resource type="PackedScene" uid="uid://c2hg2mbdbw5a7" path="res://player/player.tscn" id="1_w8u4r"]
 [ext_resource type="Texture2D" uid="uid://whxon4o037p2" path="res://placeholderArt/environment/factoryFloor.png" id="2_xmdjq"]
+[ext_resource type="Texture2D" uid="uid://df5y6xx5hd1bv" path="res://placeholderArt/interactible assets/ramplessCeiling.png" id="3_xmdjq"]
 [ext_resource type="Texture2D" uid="uid://dgphnmj2gc5ow" path="res://placeholderArt/ui assets/blackGradient.png" id="4_js0i0"]
 [ext_resource type="Texture2D" uid="uid://drrt74lsgu6v5" path="res://placeholderArt/environment/grassSet.png" id="5_0ov8i"]
 [ext_resource type="Texture2D" uid="uid://5h7oywnhso3q" path="res://placeholderArt/environment/sidewalkFloor.png" id="5_xlshu"]
 [ext_resource type="PackedScene" uid="uid://bdt41dvdc4ke4" path="res://backgroundPlaxes/black.tscn" id="6_0sxee"]
+[ext_resource type="PackedScene" uid="uid://c8uh6lmi4n5v5" path="res://environmentObjects/magnetMechanics/magObjs/ceilingRamp/ceilingRampRotater.tscn" id="9_5mqyj"]
 [ext_resource type="PackedScene" uid="uid://chdf0cqgxk6ud" path="res://dialogue/testCharacterOne/testCharacterOne.tscn" id="10_js0i0"]
 
 [sub_resource type="GDScript" id="GDScript_xlshu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mqyj"]
+texture = ExtResource("3_xmdjq")
+texture_region_size = Vector2i(256, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -3.76471, -128, 3.76471, 128, 3.76471, 128, -3.76471)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -4.57143, -91.4286, -4.57143, -91.4286, 4.57143, -128, 4.57143)
+1:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(96, -5.33333, 96, 5.33334, 128, 5.33334, 128, -5.33333)
+
+[sub_resource type="TileSet" id="TileSet_js0i0"]
+tile_size = Vector2i(256, 128)
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 0
+sources/1 = SubResource("TileSetAtlasSource_5mqyj")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xlshu"]
 texture = ExtResource("4_js0i0")
@@ -96,6 +113,12 @@ script = SubResource("GDScript_xlshu")
 [node name="testCharacterOne" parent="." instance=ExtResource("10_js0i0")]
 position = Vector2(-591, 789)
 
+[node name="ceiling" type="TileMapLayer" parent="."]
+position = Vector2(-1360, 429)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD//wQAAQAAAAAAAAAAAAQAAQABAAAAAAABAAQAAQAAAAAAAAACAAQAAQAAAAAAAAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQABAAAAAAACAAAAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_js0i0")
+
 [node name="ominous glow" type="TileMapLayer" parent="."]
 z_index = 4
 z_as_relative = false
@@ -112,3 +135,6 @@ tile_set = SubResource("TileSet_fg517")
 
 [node name="player" parent="." instance=ExtResource("1_w8u4r")]
 position = Vector2(-435, 815)
+
+[node name="ceilingRampRotater" parent="." instance=ExtResource("9_5mqyj")]
+position = Vector2(-208, 617)

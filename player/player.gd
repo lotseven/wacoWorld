@@ -2,11 +2,11 @@ extends CharacterBody2D
 class_name player
 
 # beeg constant number
-const SPEED := 12000.0
+const SPEED := 17000.0
 const JUMP_FORCE := -450.0
 const GRAVITY := 980.0 #change to force
 const MASS = 80
-
+const MAX_SPEED = 22000
 # cam stuff
 var camOffset = 1400
 
@@ -32,7 +32,7 @@ var jumping = false # should check if player is mid-jump
 var selMag 
 var wantsToPull = false
 var wantsToPush = false
-var maxSpeed = 2000
+
 
 # talking var
 var readyToTalk = false
@@ -152,8 +152,8 @@ func updateCheckpoint(c):
 	checkpoint = newPos
 	
 func capSpeed():
-	if abs(velocity.y) >= maxSpeed: velocity.y = clamp(velocity.y, -maxSpeed, maxSpeed)
-	if abs(velocity.x) >= maxSpeed: velocity.x = clamp(velocity.x, -maxSpeed, maxSpeed)
+	if abs(velocity.y) >= MAX_SPEED: velocity.y = clamp(velocity.y, -MAX_SPEED, MAX_SPEED)
+	if abs(velocity.x) >= MAX_SPEED: velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
 	
 func updateCharacterTalking(x, b):
 	readyToTalk = x

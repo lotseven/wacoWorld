@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqfxcpwa02u1k"]
+
+[ext_resource type="Script" uid="uid://dncnmq5y77oxg" path="res://environmentObjects/magnetMechanics/magObjs/ceilingRamp/ceilingRamp.gd" id="1_jbodw"]
+[ext_resource type="Texture2D" uid="uid://5v8wtepjjvev" path="res://placeholderArt/interactible assets/ceilingRamp.png" id="2_d62ai"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d62ai"]
+radius = 16.5
+height = 518.0
+
+[node name="ceilingRamp" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_jbodw")
+
+[node name="looks" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_d62ai")
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_d62ai")
+debug_color = Color(0.441763, 0.574062, 0.478832, 0.42)

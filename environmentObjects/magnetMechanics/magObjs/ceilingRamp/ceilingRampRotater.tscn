@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8uh6lmi4n5v5"]
+
+[ext_resource type="PackedScene" uid="uid://cqfxcpwa02u1k" path="res://environmentObjects/magnetMechanics/magObjs/ceilingRamp/ceilingRamp.tscn" id="1_3ck35"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4r6xc"]
+
+[node name="ceilingRampRotater" type="Node2D"]
+
+[node name="ceilingRamp" parent="." instance=ExtResource("1_3ck35")]
+collision_layer = 10
+collision_mask = 2
+gravity_scale = 0.0
+
+[node name="rotationPoint" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rotationPoint"]
+position = Vector2(-272, 0)
+shape = SubResource("CircleShape2D_4r6xc")
+
+[node name="pinJoint" type="PinJoint2D" parent="."]
+position = Vector2(-272, 0)
+node_a = NodePath("../ceilingRamp")
+node_b = NodePath("../rotationPoint")

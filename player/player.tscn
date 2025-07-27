@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cq8cqa6oa61b" path="res://placeholderArt/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bfw4sla6ivf1f" path="res://player/player.gd" id="1_rkbax"]
-[ext_resource type="PackedScene" uid="uid://es7al1vowl84" path="res://player/magnetMechanics/utility/magManager.tscn" id="2_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://es7al1vowl84" path="res://environmentObjects/magnetMechanics/utility/magManager.tscn" id="2_g1dw6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rkbax"]
 animations = [{
@@ -22,14 +22,6 @@ height = 122.0
 collision_mask = 42
 script = ExtResource("1_rkbax")
 
-[node name="camera" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
-position_smoothing_enabled = true
-position_smoothing_speed = 15.0
-drag_horizontal_enabled = true
-drag_right_margin = 0.02
-drag_bottom_margin = 0.02
-
 [node name="magManager" parent="." instance=ExtResource("2_g1dw6")]
 
 [node name="looks" type="AnimatedSprite2D" parent="."]
@@ -39,3 +31,6 @@ sprite_frames = SubResource("SpriteFrames_rkbax")
 [node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_oul6g")
+
+[node name="camera" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
