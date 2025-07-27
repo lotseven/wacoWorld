@@ -21,8 +21,8 @@ SignalBus="*res://global/signalBus.gd"
 FxManager="*res://global/FxManager.gd"
 MagnetContainer="*res://global/magnetContainer.tscn"
 Ui="*res://global/ui.tscn"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 DialogManager="*res://global/dialogManager.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
@@ -135,6 +135,10 @@ dialogic_default_action={
 2d_physics/layer_4="magObjs & other Special"
 2d_physics/layer_5="magnets"
 2d_physics/layer_6="damagers & checkpoints"
+
+[maaacks_scene_loader]
+
+disable_update_check=false
 
 [rendering]
 
