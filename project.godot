@@ -23,6 +23,7 @@ MagnetContainer="*res://global/magnetContainer.tscn"
 Ui="*res://global/ui.tscn"
 DialogManager="*res://global/dialogManager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+SceneManager="*res://global/SceneManager.tscn"
 
 [dialogic]
 
@@ -127,6 +128,10 @@ dialogic_default_action={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_game_template/base/translations/menus_translations.fr.translation")
+
 [layer_names]
 
 2d_physics/layer_1="player"
@@ -135,6 +140,12 @@ dialogic_default_action={
 2d_physics/layer_4="magObjs & other Special"
 2d_physics/layer_5="magnets"
 2d_physics/layer_6="damagers & checkpoints"
+
+[maaacks_game_template]
+
+disable_install_audio_busses=true
+disable_update_check=false
+disable_install_wizard=true
 
 [maaacks_scene_loader]
 

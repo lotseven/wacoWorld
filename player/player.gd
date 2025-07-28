@@ -7,8 +7,6 @@ const JUMP_FORCE := -450.0
 const GRAVITY := 980.0 #change to force
 const MASS = 80
 const MAX_SPEED = 22000
-# cam stuff
-var camOffset = 1400
 
 # references to children or other nodes or sprites
 # also i signed in on a nother computer hiii
@@ -41,8 +39,6 @@ var readyToTalk = false
 func _ready() -> void:
 	checkpoint = global_position
 	$magManager.connect("magChange", Callable(self, "updateMagMovement"))
-	$camera.offset = Vector2(0,-camOffset)
-	$camera.position = position
 	# -- Signals -- #
 	SignalBus.connect('hurtPlayer', Callable(self, 'hurtPlayer'))
 	SignalBus.connect('updateCheckpoint', Callable(self, 'updateCheckpoint'))
@@ -88,10 +84,10 @@ func groundedMovement(delta):
 		velocity.y += GRAVITY * delta
 	elif not is_on_floor(): 
 		velocity.y += GRAVITY/gravScale * delta
-
-	if is_on_floor() and velocity != Vector2.ZERO and (Input.is_action_pressed('left') or Input.is_action_pressed("right")): 
-		FxManager.startLoopedFx('steps', footstepSound)# long ahh if statement 😂 bro really wanna Investigate Conditions
-	else: FxManager.stopLoopedFx('steps')
+	# --FOOTSTEPS--#
+	#if is_on_floor() and velocity != Vector2.ZERO and (Input.is_action_pressed('left') or Input.is_action_pressed("right")): 
+		#FxManager.startLoopedFx('steps', footstepSound)# long ahh if statement 😂 bro really wanna Investigate Conditions
+	#else: FxManager.stopLoopedFx('steps')
 
 	
 	#flip sprite

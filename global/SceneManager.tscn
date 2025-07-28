@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl0g5pqv7qvmf"]
+
+[ext_resource type="Script" uid="uid://dqofwca1b7vrx" path="res://global/SceneManager.gd" id="1_jhf1i"]
+[ext_resource type="PackedScene" uid="uid://c2hg2mbdbw5a7" path="res://player/player.tscn" id="2_vmgx8"]
+
+[node name="SceneManager" type="Node2D"]
+script = ExtResource("1_jhf1i")
+
+[node name="player" parent="." instance=ExtResource("2_vmgx8")]
