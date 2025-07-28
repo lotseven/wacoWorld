@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://boyv23qovj15w"]
+[gd_scene load_steps=19 format=4 uid="uid://boyv23qovj15w"]
 
 [ext_resource type="PackedScene" uid="uid://bdt41dvdc4ke4" path="res://backgroundPlaxes/black.tscn" id="1_ymj6l"]
 [ext_resource type="PackedScene" uid="uid://chdf0cqgxk6ud" path="res://dialogue/testCharacterOne/testCharacterOne.tscn" id="2_clwjk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://drrt74lsgu6v5" path="res://placeholderArt/environment/grassSet.png" id="6_5x2sr"]
 [ext_resource type="Texture2D" uid="uid://5h7oywnhso3q" path="res://placeholderArt/environment/sidewalkFloor.png" id="7_1aetj"]
 [ext_resource type="PackedScene" uid="uid://c8uh6lmi4n5v5" path="res://environmentObjects/magnetMechanics/magObjs/ceilingRamp/ceilingRampRotater.tscn" id="9_v188h"]
+[ext_resource type="PackedScene" uid="uid://ddrmvy1h5bl4q" path="res://utilities&handlers/playerStartPos.tscn" id="10_1wprf"]
 [ext_resource type="PackedScene" uid="uid://xhhbuovwdi1p" path="res://utilities&handlers/sceneSwitcher.tscn" id="10_clwjk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aifmt"]
@@ -135,7 +136,10 @@ position = Vector2(-208, 617)
 
 [node name="sceneSwitcher" parent="." instance=ExtResource("10_clwjk")]
 position = Vector2(-109, 814)
-nextScene = "res://testingScenes/gunTest.tscn"
+nextScene = "res://testingScenes/baseScene.tscn"
 automatic = true
 height = 200.0
 width = 80.0
+
+[node name="playerStartPos" parent="." instance=ExtResource("10_1wprf")]
+position = Vector2(611, 774)

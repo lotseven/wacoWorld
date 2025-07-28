@@ -74,12 +74,14 @@ func handleMagnetCreation(object, pos, angle):
 		object.magAtch(pos, angle)
 	elif object is genPurposeMagnetable:
 		object.magAtch(pos, angle)
-	else: 
-		var newMagnet = magnet.instantiate()
-		newMagnet.pos = pos
-		newMagnet.angle = angle
-		MagnetContainer.add_child(newMagnet) # UNLESS ITS THE GROUND !!!
-		MagnetContainer.magList.append(newMagnet)
+		
+	#else: 
+		#var newMagnet = magnet.instantiate()
+		#newMagnet.pos = pos
+		#newMagnet.angle = angle
+		#MagnetContainer.add_child(newMagnet)
+		#MagnetContainer.magList.append(newMagnet)
+		
 	FxManager.playFx(createDeleteSFX)	
 	SignalBus.emit_signal('updateNodeMagnets')	
 

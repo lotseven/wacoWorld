@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dhqur6mbbxtv"]
+[gd_scene load_steps=15 format=4 uid="uid://dhqur6mbbxtv"]
 
 [ext_resource type="Texture2D" uid="uid://whxon4o037p2" path="res://placeholderArt/environment/factoryFloor.png" id="2_xmdjq"]
 [ext_resource type="Texture2D" uid="uid://dgphnmj2gc5ow" path="res://placeholderArt/ui assets/blackGradient.png" id="4_js0i0"]
@@ -6,8 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://5h7oywnhso3q" path="res://placeholderArt/environment/sidewalkFloor.png" id="5_xlshu"]
 [ext_resource type="PackedScene" uid="uid://bdt41dvdc4ke4" path="res://backgroundPlaxes/black.tscn" id="6_0sxee"]
 [ext_resource type="PackedScene" uid="uid://xhhbuovwdi1p" path="res://utilities&handlers/sceneSwitcher.tscn" id="7_xuonq"]
-[ext_resource type="PackedScene" uid="uid://c0vtalplyw67a" path="res://decor/barrel.tscn" id="8_towed"]
-[ext_resource type="PackedScene" uid="uid://chdf0cqgxk6ud" path="res://dialogue/testCharacterOne/testCharacterOne.tscn" id="10_js0i0"]
+[ext_resource type="PackedScene" uid="uid://ddrmvy1h5bl4q" path="res://utilities&handlers/playerStartPos.tscn" id="9_nuscr"]
 
 [sub_resource type="GDScript" id="GDScript_xlshu"]
 
@@ -94,9 +93,6 @@ script = SubResource("GDScript_xlshu")
 
 [node name="testBg" parent="." instance=ExtResource("6_0sxee")]
 
-[node name="testCharacterOne" parent="." instance=ExtResource("10_js0i0")]
-position = Vector2(-591, 789)
-
 [node name="ominous glow" type="TileMapLayer" parent="."]
 z_index = 4
 z_as_relative = false
@@ -114,9 +110,9 @@ tile_set = SubResource("TileSet_fg517")
 [node name="sceneSwitcher" parent="." instance=ExtResource("7_xuonq")]
 position = Vector2(190, 761)
 nextScene = "res://levelScenes/constructionArea/garage.tscn"
-automatic = null
-height = null
-width = null
+automatic = true
+height = 100.0
+width = 100.0
 
-[node name="Barrel" parent="." instance=ExtResource("8_towed")]
-position = Vector2(-109, 716)
+[node name="playerStartPos" parent="." instance=ExtResource("9_nuscr")]
+position = Vector2(-352, 789)

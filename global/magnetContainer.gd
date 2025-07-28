@@ -15,3 +15,9 @@ func groupsUpdate():
 			groupedMagList[groupID].append(magnet)
 # so now groupedMagList contains a bunch of lists. the groupID could be 1: this entry is a list of every magnet node in group 1
 # magnets are grouped in magMagager, which rebuilds the list every time updates are made here via the signal
+func clear():
+	for mag in magList:
+		if mag:
+			mag.queue_free()
+	magList = []
+	groupedMagList = {}

@@ -15,4 +15,14 @@ func deferredSwitch(scenePath):
 	if curScene != null: curScene.free()
 	var nextScene = load(scenePath).instantiate()
 	curScene = nextScene
-	get_tree().root.call_deferred("add_child", nextScene)
+	self.add_child(nextScene)
+	var spot = hasSpot(nextScene)
+	if spot: $player.global_position = spot.global_position
+	MagnetContainer.clear()
+	MagnetContainer.groupsUpdate()
+
+func hasSpot(node: Node) -> Node:
+	for child in node.get_children():
+		if child is playerStartPos:
+			return child
+	return null
