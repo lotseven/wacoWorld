@@ -6,9 +6,13 @@ signal groupingHasChanged # from magManager to nodes that need to update, includ
 signal switchToGrouping(visible) # from magManager to ui
 signal createMagnet(object, position, angle) # from magnetProjectile to magManager and genPurposeMagnetable
 signal updateAimArrowVisibility(visible) # from magMangager to ui
+signal passGroupsList(list) # from magManager to genPurposeMagnetbale & whatever else
 
 # --- INFO FOR PLAYER --- #
 signal hurtPlayer(obj) # from deathSpike to player
 signal updateCheckpoint(obj) # from checkpoint to player
 signal updateCharacterTalking(x) # from characterModel.gd to UI & dialogManager
 signal dialogModeActive(x) # from dialogManager to anyone who needs that info potentially :3
+
+# --- GENERAL GAME INFO --- #
+signal sceneSwitched # called from sceneSwitcher when it does its thing, right now just for magManager to reset magnets

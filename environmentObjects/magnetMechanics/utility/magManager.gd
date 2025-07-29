@@ -6,6 +6,8 @@ var rightHoldTime := 0.0
 const AIM_HOLD_THRESHOLD := 0.15 # seconds
 var movementMags = [] # variable to store a list of magnets which will be used to move around
 var selectables = [] # list of which magnets can be currently selected
+var currentMagList = [] # list of currently extant mags, analogous to MagnetContainer.magList
+var groupedMagList = {}
 
 var pointerCoords # coordinates of cursor, vector pointing to cursor from player, angle of that vector
 var pointerVec
@@ -33,25 +35,26 @@ var maxGroups = 3
 func _ready() -> void:
 	SignalBus.connect("createMagnet", Callable(self, "handleMagnetCreation")) # connection ...
 	SignalBus.connect("magnetButtonClick", Callable(self, "handleMagClicks")) # connection ...
-	
+	SignalBus.connect("sceneSwitched", Callable(self, 'sceneSwitched')) # to make sure that groups reset when scene switches
 	player = get_tree().get_first_node_in_group("player") # player noad !!
 	projContainer = $projContainer # self explanatory
 
 	maxMags = player.maxMags # gets max magnet count
 	
+	
 func _process(delta: float) -> void:
 	if !DialogManager.isTalking:
-		if MagnetContainer.magList.size() < maxMags: manageAimingMode(delta)
+		if currentMagList.size() < maxMags: manageAimingMode(delta) # MagnetContainer.magList.size()
 		manageGroupingMode()
 		updatePointer()
 		rotateMagShape()
 		if !aimMode: selMag = selectMagnet()
 		if groupMode: handleGrouping()
-		recallMags()
+		recallMags(false)
 	
 func manageAimingMode(delta: float) -> void: # goes in and out of aiming mode
 	if Input.is_action_pressed('aim'): # waits for half a second of holding before entering aim mode
-		var curMags = MagnetContainer.magList.size()
+		var curMags = currentMagList.size() #MagnetContainer.magList.size()
 		aimMode = true
 		SignalBus.emit_signal("updateAimArrowVisibility", true)
 	elif Input.is_action_just_released("aim"): # if player releases aim button, magnet should fire off
@@ -69,21 +72,20 @@ func handleFiring(): # when player releases, it fires
 	
 func handleMagnetCreation(object, pos, angle):
 	if object is staticBodyDetection: 
-		object.magAtch(pos, angle) # HERE IS ERROR SOMEWHERE
+		object.magAtch(pos, angle) 
 	elif object is switchedOnNode:
 		object.magAtch(pos, angle)
 	elif object is genPurposeMagnetable:
 		object.magAtch(pos, angle)
-		
 	#else: 
 		#var newMagnet = magnet.instantiate()
 		#newMagnet.pos = pos
 		#newMagnet.angle = angle
 		#MagnetContainer.add_child(newMagnet)
 		#MagnetContainer.magList.append(newMagnet)
-		
 	FxManager.playFx(createDeleteSFX)	
 	SignalBus.emit_signal('updateNodeMagnets')	
+	currentMagList = get_tree().get_nodes_in_group("magnets")	
 
 func updatePointer():
 	pointerCoords = Pointer.global_position
@@ -114,26 +116,32 @@ func selectMagnet():
 					potentialMagPos = m.global_position
 					mag = m
 		if mag and mag.isOnScreen(): mag.selected = true # mag should, at this point, be something
-	for m in MagnetContainer.magList: # deselects all magnets that shouldnt be selected
+	for m in currentMagList: #MagnetContainer.magList: # deselects all magnets that shouldnt be selected
 		if m!= mag:
 			m.selected = false
 			m.pulledOrPushed = false
 	return mag
 	
-func recallMags():
+func recallMags(b): # TODO WHEN BACK: HERE AT RECALL MAGS
 	recallSoundTracker = false
-	if Input.is_action_pressed("recall"):
-		for m in MagnetContainer.magList:
+	if Input.is_action_pressed("recall") or b:
+		for m in currentMagList: #MagnetContainer.magList:
 			movementMags.erase(m)
-			MagnetContainer.magList.erase(m)
+			currentMagList.erase(m) #MagnetContainer.magList.erase(m)
 			m.queue_free()
 			recallSoundTracker = true
 			numOfGroups = 0
+		groupsUpdate()
+		SignalBus.emit_signal("passGroupsList", groupedMagList)
 		SignalBus.emit_signal('updateNodeMagnets')
 		SignalBus.emit_signal('groupingHasChanged')
+		
 		lineLogic.recallAll()
+		#SignalBus.emit_signal("passGroupsList", groupedMagList)
 	if recallSoundTracker:
+		
 		FxManager.playFx(createDeleteSFX)
+	
 
 func manageGroupingMode(): # goes in and out of aiming mode
 	if Input.is_action_just_pressed('group'): 
@@ -156,4 +164,17 @@ func handleGrouping():
 	if Input.is_action_just_released('lClick'): 
 		groupingClicked = false
 		lineLogic.endLine()
-		SignalBus.emit_signal('groupingHasChanged')
+		SignalBus.emit_signal('groupingHasChanged') # SHOULD GO TO GENPURPOSEMAGNETABLE
+		groupsUpdate()
+		SignalBus.emit_signal("passGroupsList", groupedMagList)
+
+func groupsUpdate():
+	groupedMagList.clear() #remake every time
+	for magnet in currentMagList:
+		for groupID in magnet.groups:
+			if !groupedMagList.has(groupID):
+				groupedMagList[groupID] = []
+			groupedMagList[groupID].append(magnet)
+	
+func sceneSwitched():
+	recallMags(true)

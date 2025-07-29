@@ -21,6 +21,7 @@ func _ready():
 	redGlow = $redGlow
 	redGlow.visible = false
 	glow.visible = false
+	add_to_group("magnets")
 
 func _process(delta: float) -> void:
 	if selected: glow.visible = true

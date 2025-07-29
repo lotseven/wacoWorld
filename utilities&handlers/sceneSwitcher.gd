@@ -16,4 +16,6 @@ func assignExportedValues():
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is player:
-		if automatic: SceneManager.switchScene(nextScene)
+		if automatic:
+			SceneManager.switchScene(nextScene)
+			SignalBus.emit_signal("sceneSwitched")

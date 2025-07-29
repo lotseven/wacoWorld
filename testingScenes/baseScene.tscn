@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dhqur6mbbxtv"]
+[gd_scene load_steps=17 format=4 uid="uid://dhqur6mbbxtv"]
 
 [ext_resource type="Texture2D" uid="uid://whxon4o037p2" path="res://placeholderArt/environment/factoryFloor.png" id="2_xmdjq"]
 [ext_resource type="Texture2D" uid="uid://dgphnmj2gc5ow" path="res://placeholderArt/ui assets/blackGradient.png" id="4_js0i0"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://5h7oywnhso3q" path="res://placeholderArt/environment/sidewalkFloor.png" id="5_xlshu"]
 [ext_resource type="PackedScene" uid="uid://bdt41dvdc4ke4" path="res://backgroundPlaxes/black.tscn" id="6_0sxee"]
 [ext_resource type="PackedScene" uid="uid://xhhbuovwdi1p" path="res://utilities&handlers/sceneSwitcher.tscn" id="7_xuonq"]
+[ext_resource type="PackedScene" uid="uid://c0vtalplyw67a" path="res://decor/barrel.tscn" id="8_towed"]
+[ext_resource type="PackedScene" uid="uid://gyel38ppq8ej" path="res://environmentObjects/magnetMechanics/magObjs/testCube/testCube.tscn" id="9_lcoym"]
 [ext_resource type="PackedScene" uid="uid://ddrmvy1h5bl4q" path="res://utilities&handlers/playerStartPos.tscn" id="9_nuscr"]
 
 [sub_resource type="GDScript" id="GDScript_xlshu"]
@@ -116,3 +118,9 @@ width = 100.0
 
 [node name="playerStartPos" parent="." instance=ExtResource("9_nuscr")]
 position = Vector2(-352, 789)
+
+[node name="Barrel" parent="." instance=ExtResource("8_towed")]
+position = Vector2(-1529, 776)
+
+[node name="testCube" parent="." instance=ExtResource("9_lcoym")]
+position = Vector2(-498, 798)

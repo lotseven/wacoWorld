@@ -3,10 +3,19 @@ var curScene
 var pInst
 var pScen
 var basePath
+@export var loadTestingScene = true
+
 func _ready():
 	pScen = load("res://player/player.tscn")
 	basePath = "res://testingScenes/baseScene.tscn"
-	switchScene(basePath)
+	if !loadTestingScene:
+		switchScene(basePath)
+	else: 
+		curScene = get_tree().current_scene
+		var spot = hasSpot(curScene)
+		print(spot)
+		if spot: $player.global_position = spot.global_position
+
 
 func switchScene(scenePath):
 	call_deferred('deferredSwitch', scenePath)
@@ -18,8 +27,6 @@ func deferredSwitch(scenePath):
 	self.add_child(nextScene)
 	var spot = hasSpot(nextScene)
 	if spot: $player.global_position = spot.global_position
-	MagnetContainer.clear()
-	MagnetContainer.groupsUpdate()
 
 func hasSpot(node: Node) -> Node:
 	for child in node.get_children():
