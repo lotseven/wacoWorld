@@ -12,9 +12,9 @@ func _process(delta: float) -> void:
 		isTalking = true
 		var ep = determineEpisode(curChar)
 		Dialogic.start(ep)
-	elif Dialogic.current_timeline == null: isTalking = false
-
-
+	elif Dialogic.current_timeline == null: 
+		isTalking = false
+	p.isTalking = isTalking
 
 func updateCharacterTalking(b, char):
 	canTalk = b

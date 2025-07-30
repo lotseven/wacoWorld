@@ -13,7 +13,6 @@ func _ready():
 	else: 
 		curScene = get_tree().current_scene
 		var spot = hasSpot(curScene)
-		print(spot)
 		if spot: $player.global_position = spot.global_position
 
 

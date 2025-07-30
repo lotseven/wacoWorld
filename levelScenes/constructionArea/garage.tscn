@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://boyv23qovj15w"]
+[gd_scene load_steps=21 format=4 uid="uid://boyv23qovj15w"]
 
 [ext_resource type="PackedScene" uid="uid://bdt41dvdc4ke4" path="res://backgroundPlaxes/black.tscn" id="1_ymj6l"]
 [ext_resource type="PackedScene" uid="uid://chdf0cqgxk6ud" path="res://dialogue/testCharacterOne/testCharacterOne.tscn" id="2_clwjk"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ddrmvy1h5bl4q" path="res://utilities&handlers/playerStartPos.tscn" id="10_1wprf"]
 [ext_resource type="PackedScene" uid="uid://xhhbuovwdi1p" path="res://utilities&handlers/sceneSwitcher.tscn" id="10_clwjk"]
 [ext_resource type="PackedScene" uid="uid://gyel38ppq8ej" path="res://environmentObjects/magnetMechanics/magObjs/testCube/testCube.tscn" id="11_1wprf"]
+[ext_resource type="PackedScene" uid="uid://drpv2w2shtrde" path="res://environmentObjects/magnetMechanics/magObjs/trapdoor/trapdoor.tscn" id="12_x388p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aifmt"]
 texture = ExtResource("3_1wprf")
@@ -110,7 +111,7 @@ sources/2 = SubResource("TileSetAtlasSource_4pfav")
 [node name="testBg" parent="." instance=ExtResource("1_ymj6l")]
 
 [node name="testCharacterOne" parent="." instance=ExtResource("2_clwjk")]
-position = Vector2(-591, 789)
+position = Vector2(333, 791)
 
 [node name="ceiling" type="TileMapLayer" parent="."]
 position = Vector2(-1360, 429)
@@ -121,8 +122,9 @@ tile_set = SubResource("TileSet_q4ebc")
 [node name="ominous glow" type="TileMapLayer" parent="."]
 z_index = 4
 z_as_relative = false
-position = Vector2(0, 815)
-tile_map_data = PackedByteArray("AAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAD6/wEAAAAAAAAAAAD5/wEAAAAAAAAAAAD4/wEAAAAAAAAAAAD3/wEAAAAAAAAAAAD2/wEAAAAAAAAAAAD1/wEAAAAAAAAAAAD0/wEAAAAAAAAAAADz/wEAAAAAAAAAAADy/wEAAAAAAAAAAADx/wEAAAAAAAAAAADw/wEAAAAAAAAAAADv/wEAAAAAAAAAAADu/wEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAANAAEAAAAAAAAAAAAOAAEAAAAAAAAAAAAPAAEAAAAAAAAAAAAQAAEAAAAAAAAAAAARAAEAAAAAAAAAAAASAAEAAAAAAAAAAAATAAEAAAAAAAAAAAAUAAEAAAAAAAAAAADt/wEAAAAAAAAAAADs/wEAAAAAAAAAAADr/wEAAAAAAAAAAADq/wEAAAAAAAAAAADp/wEAAAAAAAAAAAAVAAEAAAAAAAAAAAA=")
+position = Vector2(0, 429)
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAD7/wIAAAAAAAAAAAD6/wIAAAAAAAAAAAD5/wIAAAAAAAAAAAD4/wIAAAAAAAAAAAD3/wIAAAAAAAAAAAD2/wIAAAAAAAAAAAD1/wIAAAAAAAAAAAD0/wIAAAAAAAAAAADz/wIAAAAAAAAAAADy/wIAAAAAAAAAAADx/wIAAAAAAAAAAADw/wIAAAAAAAAAAADv/wIAAAAAAAAAAADu/wIAAAAAAAAAAADt/wIAAAAAAAAAAADs/wIAAAAAAAAAAADr/wIAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAMAAIAAAAAAAAAAAANAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAAPAAIAAAAAAAAAAAAQAAIAAAAAAAAAAAARAAIAAAAAAAAAAAASAAIAAAAAAAAAAAATAAIAAAAAAAAAAAAUAAIAAAAAAAAAAAAVAAIAAAAAAAAAAAAWAAIAAAAAAAAAAAAXAAIAAAAAAAAAAAAYAAIAAAAAAAAAAAAZAAIAAAAAAAAAAAAaAAIAAAAAAAAAAAAbAAIAAAAAAAAAAAAcAAIAAAAAAAAAAAAdAAIAAAAAAAAAAAAeAAIAAAAAAAAAAAAfAAIAAAAAAAAAAAAgAAIAAAAAAAAAAAAhAAIAAAAAAAAAAAAiAAIAAAAAAAAAAAAjAAIAAAAAAAAAAAAkAAIAAAAAAAAAAAAlAAIAAAAAAAAAAAAmAAIAAAAAAAAAAAAnAAIAAAAAAAAAAAAoAAIAAAAAAAAAAAApAAIAAAAAAAAAAAAqAAIAAAAAAAAAAAArAAIAAAAAAAAAAAAsAAIAAAAAAAAAAAAtAAIAAAAAAAAAAAAuAAIAAAAAAAAAAAAvAAIAAAAAAAAAAAAwAAIAAAAAAAAAAAAxAAIAAAAAAAAAAAAyAAIAAAAAAAAAAAAzAAIAAAAAAAAAAAA0AAIAAAAAAAAAAADq/wIAAAAAAAAAAADp/wIAAAAAAAAAAADo/wIAAAAAAAAAAADn/wIAAAAAAAAAAADm/wIAAAAAAAAAAADl/wIAAAAAAAAAAADk/wIAAAAAAAAAAADj/wIAAAAAAAAAAADi/wIAAAAAAAAAAADh/wIAAAAAAAAAAADg/wIAAAAAAAAAAADf/wIAAAAAAAAAAADe/wIAAAAAAAAAAADd/wIAAAAAAAAAAADc/wIAAAAAAAAAAADb/wIAAAAAAAAAAADa/wIAAAAAAAAAAADZ/wIAAAAAAAAAAADY/wIAAAAAAAAAAADX/wIAAAAAAAAAAADW/wIAAAAAAAAAAADV/wIAAAAAAAAAAADU/wIAAAAAAAAAAADT/wIAAAAAAAAAAADS/wIAAAAAAAAAAAA1AAIAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_i2niv")
 
 [node name="ground" type="TileMapLayer" parent="."]
@@ -133,18 +135,24 @@ tile_map_data = PackedByteArray("AABy/f7/AQAAAAAAAABy/QIAAQAAAAQAAABy/QYAAQAAAAg
 tile_set = SubResource("TileSet_cnjpi")
 
 [node name="ceilingRampRotater" parent="." instance=ExtResource("9_v188h")]
-position = Vector2(-208, 617)
+position = Vector2(386, 546)
 
 [node name="sceneSwitcher" parent="." instance=ExtResource("10_clwjk")]
-position = Vector2(-109, 814)
+position = Vector2(761, 815)
 nextScene = "res://testingScenes/baseScene.tscn"
 automatic = true
 height = 200.0
 width = 80.0
 
 [node name="playerStartPos" parent="." instance=ExtResource("10_1wprf")]
-position = Vector2(611, 774)
+position = Vector2(-245, 771)
 
 [node name="testCube" parent="." instance=ExtResource("11_1wprf")]
-position = Vector2(-83, 825)
+position = Vector2(-43, 837)
 collision_mask = 2
+mass = 1000.0
+gravity_scale = 1.0
+
+[node name="trapdoor" parent="." instance=ExtResource("12_x388p")]
+position = Vector2(58, 619)
+rotation = 3.14159

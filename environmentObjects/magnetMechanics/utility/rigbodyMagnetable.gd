@@ -1,5 +1,5 @@
-extends StaticBody2D
-class_name statbodyMagnetable
+extends RigidBody2D
+class_name rigbodyMagnetable
 
 var mag = preload("res://environmentObjects/magnetMechanics/utility/magnet.tscn")
 var origPos # original position of the staticDetector 
@@ -30,6 +30,7 @@ func magAtch(pos, angle):
 	
 	newMag.atch = self
 	self.add_child(newMag)
+	#MagnetContainer.magList.append(newMag)
 	SignalBus.emit_signal("magnetCreated", newMag)
 	
 func updateMagnetList():

@@ -34,7 +34,7 @@ var wantsToPush = false
 
 # talking var
 var readyToTalk = false
-
+var isTalking = false
 
 func _ready() -> void:
 	checkpoint = global_position
@@ -46,12 +46,11 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	updateSelMag()
-	if !DialogManager.isTalking: movement(delta)
-
+	if !isTalking: movement(delta)
 
 func movement(delta):
-	if !DialogManager.isTalking: groundedMovement(delta)
-	if !$magManager.groupMode and !DialogManager.isTalking: magnetMovement(delta)
+	if !isTalking: groundedMovement(delta)
+	if !$magManager.groupMode and !isTalking: magnetMovement(delta)
 	friction(delta)
 	capSpeed()
 	move_and_slide()

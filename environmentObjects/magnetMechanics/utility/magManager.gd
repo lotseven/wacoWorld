@@ -43,7 +43,7 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
-	if !DialogManager.isTalking:
+	if !player.isTalking:
 		if currentMagList.size() < maxMags: manageAimingMode(delta) # MagnetContainer.magList.size()
 		manageGroupingMode()
 		updatePointer()
@@ -71,11 +71,7 @@ func handleFiring(): # when player releases, it fires
 	projContainer.add_child(newProjectile)
 	
 func handleMagnetCreation(object, pos, angle):
-	if object is staticBodyDetection: 
-		object.magAtch(pos, angle) 
-	elif object is switchedOnNode:
-		object.magAtch(pos, angle)
-	elif object is genPurposeMagnetable:
+	if object is statbodyMagnetable or object is rigbodyMagnetable:
 		object.magAtch(pos, angle)
 	#else: 
 		#var newMagnet = magnet.instantiate()
@@ -125,9 +121,9 @@ func selectMagnet():
 func recallMags(b): # TODO WHEN BACK: HERE AT RECALL MAGS
 	recallSoundTracker = false
 	if Input.is_action_pressed("recall") or b:
-		for m in currentMagList: #MagnetContainer.magList:
+		for m in currentMagList.duplicate():
 			movementMags.erase(m)
-			currentMagList.erase(m) #MagnetContainer.magList.erase(m)
+			currentMagList.erase(m)
 			m.queue_free()
 			recallSoundTracker = true
 			numOfGroups = 0
@@ -135,11 +131,9 @@ func recallMags(b): # TODO WHEN BACK: HERE AT RECALL MAGS
 		SignalBus.emit_signal("passGroupsList", groupedMagList)
 		SignalBus.emit_signal('updateNodeMagnets')
 		SignalBus.emit_signal('groupingHasChanged')
-		
 		lineLogic.recallAll()
 		#SignalBus.emit_signal("passGroupsList", groupedMagList)
 	if recallSoundTracker:
-		
 		FxManager.playFx(createDeleteSFX)
 	
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://brf8lgh4wju23"]
 
-[ext_resource type="Script" uid="uid://c0yrkueitp81o" path="res://global/magnetContainer.gd" id="1_huesh"]
+[ext_resource type="Script" uid="uid://c0yrkueitp81o" path="res://utilities&handlers/magnetContainer.gd" id="1_huesh"]
 
 [node name="MagnetContainer" type="Node"]
 script = ExtResource("1_huesh")

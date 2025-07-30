@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2hg2mbdbw5a7"]
 
-[ext_resource type="Texture2D" uid="uid://cq8cqa6oa61b" path="res://placeholderArt/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bfw4sla6ivf1f" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://es7al1vowl84" path="res://environmentObjects/magnetMechanics/utility/magManager.tscn" id="2_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://ki5oacgueybs" path="res://placeholderArt/interactible assets/placeholderPlayer.png" id="3_g1dw6"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_rkbax"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_yw30f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_oul6g")
+"texture": ExtResource("3_g1dw6")
 }],
 "loop": true,
 "name": &"default",
@@ -16,7 +16,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
-height = 122.0
+radius = 17.0
+height = 130.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 42
@@ -25,12 +26,11 @@ script = ExtResource("1_rkbax")
 [node name="magManager" parent="." instance=ExtResource("2_g1dw6")]
 
 [node name="looks" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.28, 0.28)
-sprite_frames = SubResource("SpriteFrames_rkbax")
+sprite_frames = SubResource("SpriteFrames_yw30f")
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_oul6g")
 
 [node name="camera" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+offset = Vector2(0, -200)
+drag_vertical_enabled = true

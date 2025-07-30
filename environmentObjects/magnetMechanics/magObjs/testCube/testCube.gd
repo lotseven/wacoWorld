@@ -1,4 +1,4 @@
-extends genPurposeMagnetable
+extends rigbodyMagnetable
 
 var forceVec : Vector2 # forces 2 be felt every frame
 var forceM = 700 * 10**6 # force multiplier
