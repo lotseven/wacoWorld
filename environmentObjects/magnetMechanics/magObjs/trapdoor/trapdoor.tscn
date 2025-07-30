@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btl6j3plhfgj4" path="res://placeholderArt/interactible assets/trapdoor.png" id="2_m0l2m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d62ai"]
-radius = 8.99999
+radius = 4.00001
 height = 120.0
 
 [node name="trapdoor" type="StaticBody2D"]

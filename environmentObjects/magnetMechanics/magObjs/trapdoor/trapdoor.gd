@@ -8,9 +8,10 @@ func _ready():
 
 func _physics_process(delta):
 	if otherPositions.size() > 0:
-		var raw_angle = findAngle()
-		var angle_diff = wrapf(raw_angle - rotation, -PI, PI)
-		var target_angle = rotation + angle_diff
+		var rawAngle = findAngle()
+		var angleDiff = wrapf(rawAngle - rotation, -PI, PI)
+		var targetAngle = rotation + angleDiff
+		var degAngle = rad_to_deg(targetAngle)
 
 		if tween and tween.is_running():
 			tween.kill() # resets the tween
@@ -18,8 +19,8 @@ func _physics_process(delta):
 		tween = create_tween()
 		tween.set_trans(Tween.TRANS_SINE)
 		tween.set_ease(Tween.EASE_OUT)
-		tween.tween_property(self, "rotation", target_angle, duration)
-		
+		tween.tween_property(self, "rotation", targetAngle, duration)
+
 func findAngle() -> float:
 	var sum_vector := Vector2.ZERO
 	for pos in otherPositions:

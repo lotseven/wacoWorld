@@ -5,7 +5,7 @@ var isTalking = false
 var p 
 func _ready() -> void:
 	p = get_tree().get_first_node_in_group('player')
-	SignalBus.connect("updateCharacterTalking", Callable(self, "updateCharacterTalking"))
+	SignalBus.connect("updateCharacterInteracting", Callable(self, "updateCharacterTalking"))
 	
 func _process(delta: float) -> void:
 	if canTalk and Input.is_action_just_released("jump") and p.is_on_floor() and !isTalking:

@@ -20,12 +20,14 @@ func switchScene(scenePath):
 	call_deferred('deferredSwitch', scenePath)
 
 func deferredSwitch(scenePath):
-	if curScene != null: curScene.free()
+	if curScene != null: curScene.queue_free()
 	var nextScene = load(scenePath).instantiate()
 	curScene = nextScene
-	self.add_child(nextScene)
+	$sceneContainer.add_child(nextScene) # Add it below the UI/player
 	var spot = hasSpot(nextScene)
-	if spot: $player.global_position = spot.global_position
+	if spot:
+		$player.global_position = spot.global_position
+
 
 func hasSpot(node: Node) -> Node:
 	for child in node.get_children():

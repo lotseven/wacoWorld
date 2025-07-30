@@ -11,7 +11,8 @@ signal passGroupsList(list) # from magManager to genPurposeMagnetbale & whatever
 # --- INFO FOR PLAYER --- #
 signal hurtPlayer(obj) # from deathSpike to player
 signal updateCheckpoint(obj) # from checkpoint to player
-signal updateCharacterTalking(x) # from characterModel.gd to UI & dialogManager
+signal updateCharacterInteracting(x) # (from characterModel.gd to UI & dialogManager) and from sceneSwitcher to player BOTH FOR DIALOG
+# AND FOR SCENE SWITCHING, COULD CAUSE ISSUES
 signal dialogModeActive(x) # from dialogManager to anyone who needs that info potentially :3
 
 # --- GENERAL GAME INFO --- #

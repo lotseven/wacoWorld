@@ -14,8 +14,6 @@ func _physics_process(delta): # positions must be updated every frame bcause the
 		for pos in otherPositions:
 			var toPosVec  = pos - global_position
 			var dist = toPosVec.length()
-			print(dist)
-			#if dist > snapDist:
 			forceVec += toPosVec.normalized() * vectorFactor
 	else: forceVec = Vector2.ZERO
 	apply_central_force(forceVec)

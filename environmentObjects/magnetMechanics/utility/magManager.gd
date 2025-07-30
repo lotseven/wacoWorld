@@ -71,7 +71,7 @@ func handleFiring(): # when player releases, it fires
 	projContainer.add_child(newProjectile)
 	
 func handleMagnetCreation(object, pos, angle):
-	if object is statbodyMagnetable or object is rigbodyMagnetable:
+	if object is statbodyMagnetable or object is rigbodyMagnetable or object is animbodyMagnetable:
 		object.magAtch(pos, angle)
 	#else: 
 		#var newMagnet = magnet.instantiate()

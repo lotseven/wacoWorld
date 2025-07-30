@@ -33,7 +33,7 @@ var wantsToPush = false
 
 
 # talking var
-var readyToTalk = false
+var readyToInteract = false
 var isTalking = false
 
 func _ready() -> void:
@@ -42,7 +42,7 @@ func _ready() -> void:
 	# -- Signals -- #
 	SignalBus.connect('hurtPlayer', Callable(self, 'hurtPlayer'))
 	SignalBus.connect('updateCheckpoint', Callable(self, 'updateCheckpoint'))
-	SignalBus.connect('updateCharacterTalking', Callable(self, 'updateCharacterTalking'))
+	SignalBus.connect('updateCharacterInteracting', Callable(self, 'updateCharacterInteracting'))
 
 func _physics_process(delta):
 	updateSelMag()
@@ -72,7 +72,7 @@ func groundedMovement(delta):
 				velocity.x = 0 
 
 	#jumpin
-	if is_on_floor() and Input.is_action_just_pressed("jump") and !readyToTalk:
+	if is_on_floor() and Input.is_action_just_pressed("jump") and !readyToInteract:
 		velocity.y = JUMP_FORCE
 		jumping = true
 	if !is_on_floor() and (wantsToPull or wantsToPush) and selMag:
@@ -150,5 +150,6 @@ func capSpeed():
 	if abs(velocity.y) >= MAX_SPEED: velocity.y = clamp(velocity.y, -MAX_SPEED, MAX_SPEED)
 	if abs(velocity.x) >= MAX_SPEED: velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
 	
-func updateCharacterTalking(x, b):
-	readyToTalk = x
+func updateCharacterInteracting(x, b):
+	print('yar')
+	readyToInteract = x
