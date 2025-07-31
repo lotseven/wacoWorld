@@ -138,6 +138,7 @@ locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/t
 2d_physics/layer_4="magObjs & other Special"
 2d_physics/layer_5="magnets"
 2d_physics/layer_6="damagers & checkpoints"
+2d_physics/layer_7="non-player colliders"
 
 [maaacks_game_template]
 

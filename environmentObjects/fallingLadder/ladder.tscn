@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b52a0sjy8mip7"]
+
+[ext_resource type="Texture2D" uid="uid://dsl2jnltmo3gu" path="res://placeholderArt/interactible assets/ladder.png" id="1_2h36u"]
+[ext_resource type="PackedScene" uid="uid://xhhbuovwdi1p" path="res://utilities&handlers/sceneSwitcher.tscn" id="2_au7y7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2h36u"]
+size = Vector2(116, 11)
+
+[node name="ladder" type="RigidBody2D"]
+collision_layer = 64
+collision_mask = 2
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 506.5)
+shape = SubResource("RectangleShape2D_2h36u")
+
+[node name="looks" type="Sprite2D" parent="."]
+texture = ExtResource("1_2h36u")
+
+[node name="sceneSwitcher" parent="." instance=ExtResource("2_au7y7")]
+position = Vector2(0, 423)
+nextScene = "res://testingScenes/baseScene.tscn"
+height = 200.0
+width = 100.0

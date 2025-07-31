@@ -151,5 +151,4 @@ func capSpeed():
 	if abs(velocity.x) >= MAX_SPEED: velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
 	
 func updateCharacterInteracting(x, b):
-	print('yar')
 	readyToInteract = x

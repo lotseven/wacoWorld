@@ -27,6 +27,7 @@ func deferredSwitch(scenePath):
 	var spot = hasSpot(nextScene)
 	if spot:
 		$player.global_position = spot.global_position
+		$player.readyToInteract = false
 
 
 func hasSpot(node: Node) -> Node:
